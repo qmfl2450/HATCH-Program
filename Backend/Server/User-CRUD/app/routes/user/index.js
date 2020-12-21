@@ -68,12 +68,16 @@ router.get('/:id', (req, res) => {
 
 // 유저 생성 API
 router.post('/', (req, res) => {
-  const name = req.body.name
-  const id = req.body.id
+  const {id, name} = req.query
+  // 나머지는 기본 값
+  const pw = '1111'
+  const enable = 'enable'
   const createdAt = new Date()
   const updatedAt = new Date()
-  const user = {name, id, createdAt, updatedAt}
+
+  const user = {id, pw, name, enable, createdAt, updatedAt}
   USER_DATA.push(user)
+  // console.log(USER_DATA)
   
   res.json({
     id,
@@ -85,13 +89,47 @@ router.post('/', (req, res) => {
 
 // 유저 수정 API
 router.patch('/:id', (req, res) => {
+  // id로 조회
+  const {id} = req.params
+  const user = USER_DATA.find(user => user.id === id)
+  
+  // 유저 정보 수정
+  const {name, pw, enable} = req.query
+  // req.query에 해당 key가 존재하면 user의 값을 req의 값으로 바꿔줌
+  if (name) {
+    user.name = name
+  }
+  if (pw) {
+    user.pw = pw
+  }
+  if (enable) {
+    user.enable = enable
+  }
+  // console.log(USER_DATA)
 
+  res.json({
+    id,
+    name: user.name,
+    createdAt: user.createdAt,
+    updatedAt: user.updatedAt
+  })
 })
 
 // 유저 삭제 API
 router.delete('/:id', (req, res) => {
-  const id = req.params.id
-  const users = USER_DATA.filter(user => user.id !== id)
+  const page = req.query.page === undefined ? 1 : +req.query.page
+  const pageSize = req.query.pageSize === undefined ? 2 : +req.query.pageSize
+
+  const {id} = req.params
+  const users = USER_DATA.filter(user => {
+    if (user.enable === 'disable') return false
+    if (user.id == id) return false
+    return true
+  })
+
+  USER_DATA = users
+  
+  // console.log(USER_DATA)
 
   const offset = (page - 1) * pageSize
   const items = users.slice(offset, offset + pageSize).map(({pw, enable, ...user}) => user)
