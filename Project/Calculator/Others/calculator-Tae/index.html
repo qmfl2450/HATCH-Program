@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./cal.js"></script>
+    <link href="./grid.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <input id="formula" type="text" maxlength="18">
+            </div>
+
+            <div class="col-4">
+                <input id="result" type="number" value="0" maxlength="8">
+            </div>
+
+            <div class="col-1">
+                <button onclick="reset()" type="button" class="button-color1">
+                    AC
+                </button>
+
+                <button onclick="displayNum(7)" type="button" class="button-color3">
+                    7
+                </button>
+
+                <button onclick="displayNum(4)" type="button" class="button-color3">
+                    4
+                </button>
+
+                <button onclick="displayNum(1)" type="button" class="button-color3">
+                    1
+                </button>
+            </div>
+
+            <div class="col-1">
+                <button onclick="plusMinus()" type="button" class="button-color1">
+                    +/-
+                </button>
+
+                <button onclick="displayNum(8)" type="button" class="button-color3">
+                    8
+                </button>
+
+                <button onclick="displayNum(5)" type="button" class="button-color3">
+                    5
+                </button>
+
+                <button onclick="displayNum(2)" type="button" class="button-color3">
+                    2
+                </button>
+            </div>
+
+            <div class="col-1">
+                <button onclick="percent()" type="button" class="button-color1">
+                    %
+                </button>
+
+                <button onclick="displayNum(9)" type="button" class="button-color3">
+                    9
+                </button>
+
+                <button onclick="displayNum(6)" type="button" class="button-color3">
+                    6
+                </button>
+
+                <button onclick="displayNum(3)" type="button" class="button-color3">
+                    3
+                </button>
+            </div>
+
+            <div class="col-1">
+                <button onclick="displayCal('÷')" type="button" class="button-color2">
+                    ÷
+                </button>
+
+                <button onclick="displayCal('×')" type="button" class="button-color2">
+                    ×
+                </button>
+
+                <button onclick="displayCal('-')" type="button" class="button-color2">
+                    -
+                </button>
+
+                <button onclick="displayCal('+')" type="button" class="button-color2">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <button onclick="displayZero(0)" type="button" class="button-color3 two-button">
+                    0
+                </button>
+            </div>
+
+            <div class="col-1">       
+                <button onclick="del()" type="button" class="button-color3">
+                    ←
+                </button>
+            </div>
+            <div class="col-1">
+                <button type="button" class="button-color2">
+                    =
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

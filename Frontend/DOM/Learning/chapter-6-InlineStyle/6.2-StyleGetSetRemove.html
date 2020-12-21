@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        const divStyle = document.querySelector('div').style;
+
+        // 설정
+        divStyle.backgroundColor = 'red';
+        divStyle.border = '1px solid black';
+        divStyle.width = '100px';
+        divStyle.height = '100px';
+
+        // 가져오기
+        console.log(divStyle.backgroundColor);
+        console.log(divStyle.border);
+        console.log(divStyle.width);
+        console.log(divStyle.height);
+
+        // 제거
+        divStyle.backgroundColor = '';
+        divStyle.border = '';
+        divStyle.width = '';
+        divStyle.height = '';
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style = "background-color: green; border: 1px solid purple;">
+    </div>
+
+    <script>
+        const divStyle = document.querySelector('div').style;
+        
+        // 설정
+        divStyle.setProperty('background-color', 'red');
+        divStyle.setProperty('border', '1px solid black');
+        divStyle.setProperty('width', '100px');
+        divStyle.setProperty('height', '100px');
+
+        // 가져오기
+        console.log(divStyle.getPropertyValue('background-color'));
+        console.log(divStyle.getPropertyValue('border'));
+        console.log(divStyle.getPropertyValue('width'));
+        console.log(divStyle.getPropertyValue('height'));
+
+        // 제거
+        divStyle.removeProperty('background-color');
+        divStyle.removeProperty('border');
+        divStyle.removeProperty('width');
+        divStyle.removeProperty('height');
+    </script>
+</body>
+</html>

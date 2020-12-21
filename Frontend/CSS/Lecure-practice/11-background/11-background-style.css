@@ -1,0 +1,129 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.like-button {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* ▼ WHERE YOUR CODE BEGINS */
+
+
+  body {
+      background-color: #E5E5E5;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+  }
+
+  .sr-only {
+    position: absolute;
+    z-index: -1;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  .card {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: #fff;
+      width: 840px;
+      padding: 24px 24px;
+      font-family: "Poppins";
+  }
+
+  .card-image {
+      width: 300px;
+      height: 200px;
+      background-image: url(./11-background-assets/img-house.jpg);
+      background-size: cover;
+      background-position: center;
+      border-radius: 6px;
+      padding: 12px 12px;
+      margin-right: 24px;
+  }
+
+  .like-button {
+      background-image: url(./11-background-assets/icon-favorite.svg);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none;
+      background-color: #fff;
+  }
+
+  .card-content {
+      flex-grow: 1;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .property-type {
+      margin-bottom: 8px;
+  }
+
+  .plus-badge {
+      width: 48px;
+      height: 22px;
+      background-color: #92174D;
+      color: #fff;
+      border-radius: 4px;
+      padding: 1px 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-right: 8px;
+      font-style: normal;
+  }
+
+  .property-rate strong {
+      font-weight: 400;
+      
+  }
+
+  .property-rate::before {
+      position: relative;
+      content: '';
+      display: inline-block;
+      background-image: url(./11-background-assets/icon-star.svg);
+      background-size: cover;
+      width: 13.33px;
+      height: 12.67px;
+  }
+
+  .card-title {
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: 400;
+  }
+
+
+  .property-type span,
+  .property-rate span,
+  .property-detail {
+      color: #7D858F;
+  }
+
+
+  .property-detail dd span::after {
+      content: '·';
+      margin-left: 8px;
+      margin-right: 8px;
+  }
+
+  .property-detail dd span:last-child::after {
+      content: '';
+  }
+
+  .property-detail div:first-child {
+      margin-bottom: 8px;
+  }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Calculator-grid.css">
+    <link rel="stylesheet" href="./Calculator-style-ver2.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="container">
+            <div class="row inputs">
+                <div class="col-10">
+                    <form action="" method="GET" class="input">
+                        <div class="pre-input">
+                            <input type="text" disabled>
+                        </div>
+                        <div class="now-input">
+                            <input type="text" disabled>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row buttons">
+                <div class="col-2 button">
+                    <button type="button">1</button>
+                    <button type="button">4</button>
+                    <button type="button">7</button>
+                    <button type="button"></button>
+                </div>
+                <div class="col-2 button">
+                    <button type="button">2</button>
+                    <button type="button">5</button>
+                    <button type="button">8</button>
+                    <button type="button">0</button>
+                </div>
+                <div class="col-2 button">
+                    <button type="button">3</button>
+                    <button type="button">6</button>
+                    <button type="button">9</button>
+                    <button type="button"></button>
+                </div>
+                <div class="col-2 button operator">
+                    <div class="plus">
+                        <button type="button"> + </button>
+                    </div>
+                    <div class="minus">
+                        <button type="button"> − </button>
+                    </div>
+                    <div class="multiply">
+                        <button type="button"> × </button>
+                    </div>
+                    <div class="division">
+                        <button type="button"> ÷ </button>
+                    </div>
+                </div>
+                <div class="col-2 button control">
+                    <button type="button" class="ac">AC</button>
+                    <button type="button" class="bs">←</button>
+                    <button type="button">%</button>
+                    <button type="button" class="equal">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./Calculator.js"></script>
+</body>
+</html>

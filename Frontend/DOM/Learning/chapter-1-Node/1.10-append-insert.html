@@ -1,0 +1,51 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hi</p>
+
+    <script>
+        const elementNode = document.createElement('strong');
+        const textNode = document.createTextNode(' Dude');
+
+        document.querySelector('p').appendChild(elementNode);
+        // <p>Hi<strong></strong><p>
+        document.querySelector('strong').appendChild(textNode);
+        // <p>Hi<strong> Dude</strong><p>
+
+        console.log(document.body.innerHTML);
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        const text1 = document.createTextNode('1');
+        const li = document.createElement('li');
+        li.appendChild(text1); // li 안에 text '1' 넣기
+
+        const ul = document.querySelector('ul');
+
+        ul.insertBefore(li, ul.firstChild);
+
+        console.log(document.body.innerHTML);
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+button{
+  border: none;
+  padding: 0;
+  border: solid rgb(177, 177, 177) 1px;
+  background-color: rgb(146, 145, 145);
+}
+
+
+
+/* grid system */ 
+
+.container{
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-12{
+  width: 100%;
+  padding: 0 15px;
+}
+
+/* design */
+
+/* .col-12.area-size{
+  height: 100%;
+} */
+
+.container h1{
+  background-color: rgb(163, 144, 147);
+  text-align: center;
+}
+
+
+section .form-area{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+section .result-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  text-align: right;
+  position: relative;;
+  padding: 5px;
+  width: 50%;
+  height: 100%;
+  background-color: rgb(228, 220, 220);
+}
+
+section .result-content{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+
+
+/* section .result-content{
+  height: 50%;
+} */
+
+.result-area strong,
+.result-area span{
+  display: block;
+}
+
+.result-area span{
+  font-size: 12px;
+  color: gray;
+}
+
+.result-area strong{
+  font-size: 15px;
+  color: rgb(32, 31, 31);
+}
+
+.input-area{
+  background-color: rgb(71, 55, 55);
+}
+
+section .result-area strong{
+  width: 100%;
+}
+
+
+.input-area{
+  width: 50%;
+  height: 100%;
+}
+
+.operator-area{
+  display: flex;
+  height: 20%;
+}
+
+.operator-area button{
+  width: 20%;
+  height: 100%;
+}
+
+.number-area{
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; */
+  height: 100%;
+}
+
+.numbers{
+  width: 100%;
+  height: 20%;
+  display: flex;
+}
+
+.number-area button{
+  width: 33.33333333%;
+  height: 100%;
+  
+}

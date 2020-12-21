@@ -1,0 +1,553 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: #2B292D;
+}
+
+.container {
+    max-width: 960px;
+}
+
+/* Reset CSS */
+a {
+    text-decoration: none;
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    letter-spacing: -0.01em;
+}
+
+a,
+button {
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    color: inherit;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    background-color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+/* Landing */
+.landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 568px;
+    background-color: #FDDED8;
+}
+
+.landing h1 {
+    margin-bottom: 24px;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-align: center;
+}
+
+.landing p {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons button {
+    width: 140px;
+    height: 40px;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: -0.05em;
+}
+
+.apply-button button {
+    margin-right: 8px;
+    background-color: #3040C4;
+    color: #FFFFFF;
+}
+
+.learn-button button {
+    background-color: #FFFFFF;
+    color: #3040C4;
+}
+
+
+
+/* Testimonials */
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 496px;
+    background-color: #F4F5F7;
+}
+
+.testimonials h2 {
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.363636363636364;
+    letter-spacing: -0.04em;
+}
+
+.newtech {
+    margin-bottom: 40px;
+}
+
+
+/* Program */
+.program {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.program .header strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #009B4D;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.program .header h1 {
+    margin-bottom: 24px;
+    font-size: 34px;
+    line-height: 1.058823529411765;
+    letter-spacing: -0.03em;
+}
+
+.card-1,
+.card-2,
+.card-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 290px;
+    height: 291px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05), 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
+}
+
+.card-1,
+.card-2 {
+    margin-bottom: 20px;
+}
+
+.card-1 img,
+.card-2 img,
+.card-3 img {
+    display: block;
+    margin-bottom: 16px;
+    width: auto;
+    height: 195px;
+}
+
+.card strong {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.333333333333333;
+    letter-spacing: -0.02em;
+}
+
+
+/* Curriculum */
+.curriculum {
+    padding: 80px 0;
+}
+
+.curriculum .header {
+    margin-bottom: 48px;
+}
+
+.curriculum .header strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #0189D1;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.curriculum .header h1 {
+    margin-bottom: 24px;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.058823529411765;
+    letter-spacing: -0.03em;
+}
+
+.curriculum .header p {
+    margin-bottom: 32px;
+}
+
+.curriculum .header button {
+    margin-left: 3px;
+    border-radius: 2px;
+    width: 140px;
+    height: 48px;
+    background-color: #3040C4;
+    color: #FFFFFF;
+}
+
+.curriculum .header img {
+    width: 0;
+    overflow: hidden;
+}
+
+.curriculum .details p{
+    font-size: 15px;
+    line-height: 1.466666666666667;
+}
+
+.curriculum .details em {
+    font-style: normal;
+    font-weight: 700;
+}
+
+.curriculum .details p:first-child {
+    margin-bottom: 40px;
+}
+
+
+/* Banner */
+.banner {
+    padding: 40px 0;
+    background-color: #F2F8FA;
+}
+
+.banner-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 25px 49px;
+}
+
+.banner img {
+    display: block;
+    width: auto;
+    height: 190px;
+}
+
+.banner-email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-email h1 {
+    margin-bottom: 16px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.banner-email p {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.banner-email input {
+    margin-bottom: 8px;
+    padding: 12px 156px 12px 16px;
+    width: 290px;
+    height: 48px;
+    background-color: #fff;
+    color: #7B7B7E;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.banner-email button {
+    margin-bottom: 8px;
+    width: 290px;
+    height: 48px;
+    background-color: #3040C4;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: -0.05em;
+}
+
+.banner-email span {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.538461538461538;
+    color: #7B7B7E;
+}
+
+.banner-email span a {
+    text-decoration: underline;
+    color: #3040C4;
+}
+
+
+/* Footer */
+.footers {
+    padding: 24px 0;
+}
+
+.footers li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.714285714285714;
+    letter-spacing: -0.01em;
+    color: #807F81;
+}
+
+.footers li:last-child {
+    margin-bottom: 0;
+}
+
+
+
+
+
+/* Desctop ver. */
+@media screen and (min-width: 768px) {
+    p {
+        font-size: 22px;
+        line-height: 1.454545454545455;
+        letter-spacing: -0.01em;
+    }
+
+    /* landing */
+    .landing h1 {
+        margin-bottom: 32px;
+        font-size: 70px;
+        line-height: 1.028571428571429;
+        letter-spacing: -0.05em;
+    }
+
+    .landing p {
+        margin-bottom: 32px;
+    }
+
+    .landing button {
+        width: 160px;
+        height: 56px;
+    }
+
+    .landing .apply-button {
+        margin-right: 16px;
+    }
+
+
+    /* testimonials */
+    .newtech {
+        width: 370px;
+    }
+
+    .develop {
+        width: 450px;
+    }
+
+    .testimonials h2 {
+        font-size: 26px;
+        line-height: 1.307692307692308;
+        letter-spacing: -0.04em;
+    }
+
+
+    /* program */
+    .program .header {
+        margin-bottom: 72px;
+        text-align: center;
+    }
+
+    .program .header strong {
+        margin-bottom: 16px;
+        font-size: 22px;
+        line-height: 1.090909090909091;
+        letter-spacing: -0.01em;
+    }
+
+    .program .header h1 {
+        margin-bottom: 32px;
+        font-size: 56px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+    }
+
+    .program .cards strong {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    .program .card-1:hover,
+    .program .card-2:hover,
+    .program .card-3:hover {
+        background-color: #3141C5;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+
+
+    /* curriculum */
+    .curriculum .header {
+        margin-bottom: 24px;
+    }
+
+    .curriculum .header strong {
+        margin-bottom: 16px;
+        font-size: 22px;
+        line-height: 1.090909090909091;
+        letter-spacing: -0.01em;
+    }
+
+    .curriculum .header h1 {
+        margin-bottom: 32px;
+        font-size: 56px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+    }
+
+    .curriculum .header p {
+        margin-bottom: 72px;
+    }
+
+    .curriculum .header button {
+        margin-bottom: 66px;
+        margin-left: 0;
+        width: 160px;
+        height: 56px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.555555555555556;
+        letter-spacing: -0.05em;
+    }
+
+    .curriculum .header img {
+        width: 425px;
+        height: auto;
+    }
+
+    .curriculum .details p {
+        font-size: 18px;
+        line-height: 1.444444444444444;
+        letter-spacing: -0.01em;
+    }
+
+
+
+
+    /* Banner */
+    .banner-image {
+        margin-right: 80px;
+        padding: 0;
+    }
+
+    .banner-image img {
+        width: 287px;
+        height: auto;
+    }
+
+    .banner-email {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .banner-email h1 {
+        font-size: 40px;
+        line-height: 1;
+        letter-spacing: -0.05em;
+    }
+
+    .banner-email p {
+        text-align: left;
+    }
+
+    .banner .input-email {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .banner .input-email input {
+        margin-right: 8px;
+        width: 362px;
+        font-size: 18px;
+        line-height: 1.333333333333333;
+    }
+
+    .banner .input-email button {
+        width: 160px;
+        font-size: 18px;
+        line-height: 1.333333333333333;
+        letter-spacing: -0.02em;
+    }
+
+    .banner-email span {
+        font-size: 14px;
+        line-height: 1.714285714285714;
+    }
+
+
+
+    /* Footer */
+    .footers {
+        display: flex;
+        align-items: center;
+        align-items: center;
+    }
+
+    .footers ul {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footers li {
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculator.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <header>
+            <h1>calculator</h1>
+        </header>
+
+        <div class="output_screen">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <span class = "display"></span>
+                    </div>
+                    <div class="col-4">
+                        <span class = "result">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input_screen">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">
+                        <button class = "input operator" id = "percent" onclick="percent()">%</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input operator" id = "clear" onclick="backspace()">C</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input operator" id = "all-clear" onclick="allClear()">AC</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "operator" id = "equals">=</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-1">
+                        <button class = "input num_input">7</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input num_input">8</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input num_input">9</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input calculations" id = "division">÷</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-1">
+                        <button class = "input num_input">4</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input num_input">5</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input num_input">6</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input calculations" id = "multiplication">x</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-1">
+                        <button class = "input num_input">1</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input num_input">2</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input num_input">3</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input calculations" id = "addition">+</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <button class = "input num_input">0</button>
+                    </div>
+                    <div class="col-1">
+                        <button class = "input calculations" id = "subtraction">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./calculator.js"></script>
+</body>
+</html>

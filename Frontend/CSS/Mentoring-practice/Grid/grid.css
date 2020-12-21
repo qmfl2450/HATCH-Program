@@ -1,0 +1,216 @@
+/* gutter: 15px */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* container의 역할은 가두기, 범위 설정 */
+.container {
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* row의 역할은 가로 정렬, 사이즈 유지(칸 맞추기) */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding을 15씩 주었기 때문에 margin으로 빼줌 */
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* col의 역할은 개수, 양 옆 gutter 유지 */
+.col-1 {
+    width: 8.333333333333333;
+    padding: 0, 15px;
+}
+
+.col-2 {
+    width: 16.66666666666667;
+    padding: 0, 15px;
+}
+
+.col-3 {
+    width: 25;
+    padding: 0, 15px;
+}
+
+.col-4 {
+    width: 33.33333333333333;
+    padding: 0, 15px;
+}
+
+.col-5 {
+    width: 41.66666666666667;
+    padding: 0, 15px;
+}
+
+.col-6 {
+    width: 50;
+    padding: 0, 15px;
+}
+
+.col-7 {
+    width: 58.33333333333333;
+    padding: 0, 15px;
+}
+
+.col-8 {
+    width: 66.66666666666667;
+    padding: 0, 15px;
+}
+
+.col-9 {
+    width: 75;
+    padding: 0, 15px;
+}
+
+.col-10 {
+    width: 83.33333333333333;
+    padding: 0, 15px;
+}
+
+.col-11 {
+    width: 91.66666666666667;
+    padding: 0, 15px;
+}
+
+.col-12 {
+    width: 100;
+    padding: 0, 15px;
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .col-lg-1 {
+        width: 8.333333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-2 {
+        width: 16.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-3 {
+        width: 25;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-4 {
+        width: 33.33333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-5 {
+        width: 41.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-6 {
+        width: 50;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-7 {
+        width: 58.33333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-8 {
+        width: 66.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-9 {
+        width: 75;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-10 {
+        width: 83.33333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-11 {
+        width: 91.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-lg-12 {
+        width: 100;
+        padding: 0, 15px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .col-xl-1 {
+        width: 8.333333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-2 {
+        width: 16.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-3 {
+        width: 25;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-4 {
+        width: 33.33333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-5 {
+        width: 41.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-6 {
+        width: 50;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-7 {
+        width: 58.33333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-8 {
+        width: 66.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-9 {
+        width: 75;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-10 {
+        width: 83.33333333333333;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-11 {
+        width: 91.66666666666667;
+        padding: 0, 15px;
+    }
+    
+    .col-xl-12 {
+        width: 100;
+        padding: 0, 15px;
+    }
+}

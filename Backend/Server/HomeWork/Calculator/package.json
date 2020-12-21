@@ -1,0 +1,26 @@
+{
+  "name": "calculator",
+  "version": "0.0.1",
+  "description": "calculator server",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qmfl2450/Calculator.git"
+  },
+  "author": "kimsumi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qmfl2450/Calculator/issues"
+  },
+  "homepage": "https://github.com/qmfl2450/Calculator#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

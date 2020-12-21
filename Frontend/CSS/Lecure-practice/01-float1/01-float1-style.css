@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: -0.02em;
+    background-color: #E5E5E5;
+  }
+  
+  a {
+    font-size: 18px;
+    line-height: 20px;
+    color: #8492a6;
+    text-decoration: none;
+  }
+  
+  /* ▼ WHERE YOUR CODE BEGINS */
+
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    border-bottom: 1px solid #E5EAEF;
+  }
+
+  .all-list {
+    width: 540px;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .list {
+    float: left;
+    margin-right: 16px;
+  }
+
+  .list a {
+    padding: 16px 20px;
+    display: block;
+  }
+
+  .Emails {
+    border-bottom: 2px solid #2860E1;
+  }
+
+  .Emails-text {
+    color: #2860E1;
+    font-weight: 500;
+  }

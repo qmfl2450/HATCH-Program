@@ -1,0 +1,130 @@
+/* reset CSS */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+input,
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    line-height: 1.166666666666667;
+    color: #000000;
+    background-color: inherit;
+    border: none;
+}
+
+button:hover,
+button:active,
+button:focus {
+    border: none;
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+/* CSS */
+
+.calculator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 52px 47px 60px;
+    width: 670px;
+    background-color: #12A8A7;
+}
+
+.inputs .input {
+    margin-bottom: 27px;
+    border: 5px solid #000000;
+    border-radius: 22px;
+    padding: 35px;
+    width: 100%;
+    height: 280px;
+    background-color: #B7F6E1;
+}
+
+.input .pre-input,
+.input .now-input {
+    width: 100%;
+    height: 50%;
+}
+
+.input .pre-input input, 
+.input .now-input input {
+    width: 100%;
+    height: 100%;
+    text-align: end;
+}
+
+.input .pre-input input {
+    font-size: 48px;
+}
+
+.input .now-input input {
+    font-size: 75px;
+}
+
+.buttons .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons .button button {
+    margin-bottom: 15px;
+    margin-right: 10px;
+    border: 3px solid #7C7C7C;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #F1F1F1;
+}
+
+.buttons .button button:hover {
+    cursor: pointer;
+}
+
+.buttons .button button:active {
+    background-color: #ABABAB;
+}
+
+.buttons .button:last-child button {
+    margin-right: 0;
+}
+
+.buttons .button:last-child .ac {
+    background-color: #C71806;
+}
+
+.buttons .button:last-child .ac:active {
+    background-color: #840D01;
+}
+
+.buttons .button:last-child .bs {
+    background-color: #FADD54;
+    font-weight: 700;
+}
+
+.buttons .button:last-child .bs:active {
+    background-color: #7e6900;
+}
+
+.buttons .button:last-child .equal {
+    background-color: #36E0FF;
+}
+
+.buttons .button:last-child .equal:active {
+    background-color: #0096b1;
+}

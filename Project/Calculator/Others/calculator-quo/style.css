@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+/* font */
+body{
+    font-family: 'DM Sans', sans-serif;
+
+}
+
+/* Reset CSS */
+
+button,
+input 
+{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 30px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active
+{
+    outline: none;
+    box-shadow: none;
+}
+
+ul,
+ol,
+li{
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+input {
+    width: 270px;
+    height: 50px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button {
+    width : 60px;
+    height: 60px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border : 2px solid white;
+    border-radius: 50%;
+}
+/* button:hover {
+    background-color: gray;
+} */
+
+button:active {
+    background-color: hotpink;
+}
+/* 계산기 */
+
+.calculator {
+    max-width: 320px;
+    padding : 40px 0;
+    width : 100%;
+    background-color: gainsboro;
+    text-align: center;
+    border : 3px solid gainsboro;
+}
+
+.calculator-main{
+    width: 100%;
+    height: 488px;
+}
+
+.calculator-name {
+    font-size: 38px;
+    margin-bottom : 30px;
+}
+
+.nom {
+    background-color: yellow;
+    margin-right: 0;
+}
+
+.result {
+    text-align: right;
+}
+
+.cl,
+.back {
+    border-radius: 10px;
+    width : 125px;
+    height: 45px;
+}
+
+.cl {
+    margin-right: 10px;
+}

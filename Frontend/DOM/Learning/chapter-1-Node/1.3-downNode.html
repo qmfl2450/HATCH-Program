@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#">Hi</a>
+    <script>
+        // element 노드 개체에 대한 참조를 얻음
+        const nodeAnchor = document.querySelector('a');
+        // element 노드 개체에 대한 속성 키를 저장하기 위한 props 배열을 생성
+        const props = [];
+
+        // element 노드 개체에 대해 루프를 돌면서 모든 속성 및 메서드(상속받은 것 포함)를 얻어냄
+        for(let key in nodeAnchor) {
+            props.push(key);
+        }
+
+        // 속성 및 메서드를 알파벳순으로 기록
+        console.log(props.sort());
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+/* Reset CSS */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #E5E5E5;
+}
+
+button,
+input {
+    font-family: 'Inter', sans-serif;
+    border: none;
+    background-color: inherit;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:hover,
+button:active,
+button:focus,
+button:checked,
+input:hover,
+input:active,
+input:focus,
+input:checked {
+    outline: none;
+    border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* CSS */
+
+.order-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 1160px;
+}
+
+
+/* images */
+
+.product-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+    padding: 0 0 99px 40px;
+}
+
+.product-images .main-image {
+    padding: 36px 13px 37px;
+    width: 540px;
+    height: 520px;
+}
+
+.product-images .main-image img {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.product-images .mini-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mini-image {
+    object-fit: contain;
+    margin-right: 8px;
+    width: 60px;
+    height: 60px;
+}
+
+.mini-image:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* .mini-image:first-child {
+    border: 1px solid #E4E4E4;
+    border-radius: 6px;
+} */
+
+.mini-image:last-child {
+    margin-right: 0;
+}
+
+.mini-image img {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+
+/* title */
+
+.product-order-desc {
+    padding: 40px 40px 61px 0;
+}
+
+
+.product-order-desc h1 {
+    margin-bottom: 12px;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.333333333333333;
+    letter-spacing: -0.03em;
+    color: #1C1C1C;
+}
+
+
+/* evaluation */
+
+.product-order-desc .product-evaluation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-order-desc .product-evaluation span {
+    font-size: 14px;
+    line-height: 1.142857142857143;
+    letter-spacing: -0.02em;
+}
+
+.product-order-desc .product-evaluation .reviews {
+    display: flex;
+    align-items: center;
+}
+
+.product-order-desc .product-evaluation .reviews .review-images {
+    display: flex;
+    align-items: center;
+    margin-right: 4.5px;
+}
+
+.product-order-desc .product-evaluation .reviews .review-images img {
+    display: block;
+    margin-right: 1px;
+}
+
+.product-order-desc .product-evaluation .reviews .review-images img:last-child {
+    margin-right: 0;
+}
+
+.product-order-desc .product-evaluation .reviews .review-number {
+    margin-right: 19px;
+    color: #969696;
+}
+
+.product-order-desc .product-evaluation .orders {
+    display: flex;
+    align-items: center;
+    color: #00B517;
+}
+
+.product-order-desc .product-evaluation .orders::before {
+    content: "";
+    display: block;
+    margin-right: 4px;
+    background-image: url(./practice-3-assets/icon-cart.svg);
+    object-fit: cover;
+    width: 16px;
+    height: 16px;
+}
+
+
+/* price */
+
+.product-order-desc .product-price {
+    display: block;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.333333333333333;
+    letter-spacing: -0.03em;
+    color: #1C1C1C;
+}
+
+
+/* desc */
+
+.product-order-desc .product-desc {
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.466666666666667;
+    letter-spacing: -0.015em;
+    color: #545454;
+}
+
+
+/* model desc */
+
+.product-detail-desc {
+    margin-bottom: 30px;
+}
+
+.product-detail {
+    display: flex;
+    align-items: center;
+    padding: 8px 0 8px 12px;
+    background-color: #F7F7F7;
+}
+
+.product-detail.model {
+    border-radius: 6px 6px 0 0;
+}
+
+.product-detail.color {
+    background-color: #fff;
+}
+
+.product-detail.delivery {
+    border-radius: 0 0 6px 6px;
+}
+
+.product-detail dt,
+.product-detail dd {
+    font-size: 15px;
+    line-height: 1.466666666666667;
+    letter-spacing: -0.015em;
+}
+
+.product-detail dt {
+    width: 86px;
+    color: #545454;
+}
+
+.product-detail dd {
+    font-weight: 600;
+}
+
+
+/* order form */
+
+.input-box .input-order-info {
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.input-box .select-order-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box .select-title {
+    font-size: 15px;
+    line-height: 1.466666666666667;
+    letter-spacing: -0.02em;
+}
+
+.input-box .quantity .select-title {
+    margin-bottom: 8px;
+    margin-right: 85px;
+}
+
+.input-box .size .select-title {
+    margin-bottom: 16px;
+}
+
+.input-box .order-count-button {
+    display: flex;
+    align-items: center;
+}
+
+.order-count-button button,
+.order-count-button input {
+    border: 1px solid #E4E4E4;
+    width: 38px;
+    height: 38px;
+}
+
+.order-count-button button:hover {
+    background-color: #F8F8F8;
+}
+
+.order-count-button .minus-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px 0 0  6px;
+}
+
+.order-count-button .plus-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 6px 6px 0;
+}
+
+.order-count-button input {
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.466666666666667;
+    letter-spacing: -0.02em;
+    color: #545454;
+}
+
+.select-order-info.size .select-radios {
+    display: flex;
+    align-items: center;
+}
+
+.select-order-info.size .select-radio {
+    display: flex;
+    align-items: center;
+}
+
+.select-order-info.size .select-radio input {
+    margin-right: 10px;
+    display: none;
+}
+
+.select-order-info.size .select-radio input:hover {
+    cursor: pointer;
+}
+
+.select-order-info.size .select-radio input:checked {
+    appearance: none;
+}
+
+.select-order-info.size .select-radio input {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #E4E4E4;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.select-order-info.size .select-radio input:checked {
+    border: 6px solid #007BFF;
+}
+
+.select-order-info.size .select-radios .select-radio label {
+    display: block;
+    margin-right: 20px;
+}
+
+.order-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    width: 100%;
+    height: 64px;
+    background-color: #1C1C1C;
+}
+
+.order-button:hover {
+    opacity: 0.75;
+}
+
+.order-button a {
+    width: 100%;
+    height: 100%;
+}
+
+.order-button button {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.333333333333333;
+    letter-spacing: -0.02em;
+    color: #fff;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Hi</li>
+        <li>there</li>
+    </ul>
+
+    <script>
+        const cloneUL = document.querySelector('ul').cloneNode(true);
+
+        console.log(cloneUL.constructor);
+        console.log(cloneUL.innerHTML);
+    </script>
+</body>
+</html>

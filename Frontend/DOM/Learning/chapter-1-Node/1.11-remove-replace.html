@@ -1,0 +1,67 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removeChild</title>
+</head>
+<body>
+    <div id = "A">Hi</div>
+    <div id = "B">Dude</div>
+
+    <script>
+        const divA = document.getElementById('A');
+        divA.parentNode.removeChild(divA);
+
+        const divB = document.getElementById('B').firstChild;
+        divB.parentNode.removeChild(divB);
+
+        console.log(document.body.innerHTML);
+    </script>
+
+    실험 -> 실행됨
+    <script>
+        document.getElementById('A').remove();
+        console.log(document.body.innerHTML);
+
+        const divB = document.getElementById('B');
+        const text = document.getElementById('B').firstChild;
+        divB.removeChild(text);
+        console.log(document.body.innerHTML);
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replaceChild</title>
+</head>
+<body>
+    <div id = "A">Hi</div>
+    <div id = "B">Dude</div>
+
+    <script>
+        const divA = document.getElementById('A');
+        const newSpan = document.createElement('span');
+        newSpan.textContent = 'Howdy';
+        divA.parentNode.replaceChild(newSpan, divA);
+
+        const divB = document.getElementById('B').firstChild;
+        const newText = document.createTextNode('buddy');
+        divB.parentNode.replaceChild(newText, divB);
+
+        console.log(document.body.innerHTML);
+
+        // 실험 -> 실행 되지 않음
+        // const newSpan = document.createElement('span');
+        // newSpan.textContent = 'Howdy';
+        // document.getElementById('A').replace(newSpan);
+
+        // console.log(document.body.innerHTML);
+    </script>
+</body>
+</html>

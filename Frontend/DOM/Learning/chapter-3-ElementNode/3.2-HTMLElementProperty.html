@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#">Hi</a>
+
+    <script>
+        const anchor = document.querySelector('a');
+
+        // element 고유 속성
+        console.log(Object.keys(anchor).sort());
+
+        // element 고유 속성 및 상속받은 속성
+        const includeInherited = [];
+        for(let p in document) {
+            includeInherited.push(p);
+        }
+        console.log(includeInherited.sort());
+
+        // element가 상속받은 속성만
+        const onlyInherited = [];
+        for(let p in document) {
+            if(!document.hasOwnProperty(p)) {
+                onlyInherited.push(p);
+            }
+        }
+        console.log(onlyInherited.sort());
+    </script>
+</body>
+</html>

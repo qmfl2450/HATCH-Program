@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "A"></div>
+    <div id = "B"></div>
+    <span id = "C"></span>
+    <div id = "D"></div>
+    <div id = "E"></div>
+
+    <script>
+        document.getElementById('A').innerHTML = '<strong>Hi</strong>';
+        document.getElementById('B').outerHTML = '<div id = "B" class = "new">Whats Shaking</div>';
+        document.getElementById('C').textContent = 'dude';
+        document.getElementById('D').innerHTML = 'keep it';
+        document.getElementById('E').outerHTML = 'real!';
+
+        console.log(document.body.innerHTML);
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <i id = "elm">how</i>
+
+    <script>
+    const elm = document.getElementById('elm');
+
+    elm.insertAdjacentHTML('beforebegin', '<span>Hey-</span>');
+    elm.insertAdjacentHTML('afterbegin', '<span>dude-</span>');
+    elm.insertAdjacentHTML('beforeend', '<span>-are</span>');
+    elm.insertAdjacentHTML('afterend', '<span>-you</span>');
+
+    console.log(document.body.innerHTML);
+
+    console.log(document.body.textContent);
+    </script>
+</body>
+</html>

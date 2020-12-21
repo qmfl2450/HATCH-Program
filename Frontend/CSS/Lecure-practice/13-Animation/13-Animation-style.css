@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    background-color: #E5E5E5;;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding: 80px 100px;
+    background-color: #fff;
+}
+
+.loading-title {
+    margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 1.333333333333333;
+    color: #151B26;
+    animation-name: fadein;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+}
+
+.progress-bar {
+    position: relative;
+    width: 300px;
+    height: 12px;
+    border-radius: 100px;
+    background-color: #E5EAEF;
+}
+
+.progress-bar-gauge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 12px;
+    border-radius: 100px;
+    background-color: #13CE66;
+    animation-name: load;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fadein {
+    from {
+        color: #fff;
+    }
+
+    to {
+        color: #151B26;
+    }
+}
+
+
+@keyframes load {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
