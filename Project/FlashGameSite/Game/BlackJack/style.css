@@ -48,18 +48,22 @@ button:focus {
     margin-top: 100px;
 }
 
-.hostCard {
+.hostCards {
     display: flex;
     justify-content: center;
     margin-bottom: 22px;
 }
-.hostCard div {
+.hostCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 15px;
     width: 38px;
     height: 50px;
     background-color: #fff;
+    font-weight: 700;
 }
-.hostCard div:last-child {
+.hostCards div:last-child {
     margin-right: 0;
 }
 
@@ -96,17 +100,43 @@ button:focus {
 }
 
 .firstPlayer {
+    width: 250px;
     position: absolute;
     left: 50px;
+}
+.firstPlayer .playerName {
+    display: flex;
 }
 .firstPlayer strong {
     margin-right: 20px;
 }
 
 .secondPlayer {
+    width: 250px;
     position: absolute;
     right: 50px;
 }
+.secondPlayer .playerName {
+    display: flex;
+    justify-content: flex-end;
+}
 .secondPlayer strong {
     margin-left: 20px;
+}
+
+.playerCards {
+    display: flex;
+    margin-top: 15px;
+}
+
+.playerCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    width: 38px;
+    height: 50px;
+    background-color: #fff;
+    font-weight: 700;
 }
