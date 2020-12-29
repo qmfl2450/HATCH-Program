@@ -68,6 +68,7 @@ for (let i = 0; i < 18; i++) {
 
 // 다시시작 함수
 function reset () {
+    console.log('reset')
     // 변수 초기화
     hostNum = 0
     firstNum = 0
@@ -106,6 +107,7 @@ function reset () {
 // 승패 가르는 함수
 function whoIsWinner () {
     // 10턴이 지나면 종료
+    console.log('whoiswinner')
     if (hostNum > secondNum && hostNum > firstNum && turnNumber.textContent == 9) {
         if (secondNum < firstNum) {
             alert(`Player 1 : ${firstNum}점 \nPlayer 2 : ${secondNum}점 \nPlayer 1가 이겼습니다.`)
