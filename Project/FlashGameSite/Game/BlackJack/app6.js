@@ -60,14 +60,73 @@ for (let i = 61; i < 74; i++) {
 
 // 호스트와 플레이어들에게 배분할 카드 숫자 (턴 당 1장씩 * 2인 = 20장 + 호스트 5장 = 25장)
 const cards = []
+// 플레이어에게 배분할 빈 카드
 const card = []
 for (let i = 0; i < 18; i++) {
     card.push(document.createElement('div'))
 }
 
 // 다시시작 함수
-function reset() {
+function reset () {
+    // 변수 초기화
+    hostNum = 0
+    firstNum = 0
+    secondNum = 0
+    noOverLap.length = 0
+    cards.length = 0
+    
+    card.length = 0
+    for (let i = 0; i < 18; i++) {
+        card.push(document.createElement('div'))
+    }
 
+    turnNumber.textContent = '1'
+    turnNumber.classList.remove('show')
+
+    start.textContent = '시작'
+
+    // 노드 초기화
+    firstPlayerCard = document.querySelectorAll('.firstPlayer .playerCard')
+    secondPlayerCard = document.querySelectorAll('.secondPlayer .playerCard')
+
+    while(hostCards.length > 5) {
+        hostCards.removeChild('div')
+    }
+    hostCard.textContent = ''
+    hostNumber.textContent = ''
+    while(firstPlayerCard.length > 1 && secondPlayerCard.length > 1) {
+        let node = document.querySelectorAll('.playerCard');
+        if (node.parentNode) {
+        node.parentNode.removeChild(node);
+        }
+    }
+    playerCard.textContent = ''
+}
+
+// 승패 가르는 함수
+function whoIsWinner () {
+    // 10턴이 지나면 종료
+    if (hostNum > secondNum && hostNum > firstNum && turnNumber.textContent == 9) {
+        if (secondNum < firstNum) {
+            alert(`Player 1 : ${firstNum}점 \nPlayer 2 : ${secondNum}점 \nPlayer 1가 이겼습니다.`)
+        }
+        if (secondNum > firstNum) {
+            alert(`Player 1 : ${firstNum}점 \nPlayer 2 : ${secondNum}점 \nPlayer 2가 이겼습니다.`)
+        }
+    }
+
+    // 탈락 종료
+    if (hostNum < secondNum && hostNum < firstNum) {
+        alert('모두 탈락! 다시 시작해주세요.')
+    }
+    if (hostNum < secondNum && hostNum > firstNum) {
+        alert('Player 2 탈락! Player 1가 이겼습니다.')
+    }
+    if (hostNum < firstNum && hostNum > secondNum) {
+        alert('Player 1 탈락! Player 2가 이겼습니다.')
+    }
+
+    reset()
 }
 
 
@@ -111,18 +170,6 @@ start.addEventListener('click', v => {
     }
 
     if (start.textContent === '다음 턴') {
-        // 10턴이 지나면 종료
-        if (hostNum > secondNum && hostNum > firstNum && turnNumber.textContent == 9) {
-            if (secondNum < firstNum) {
-                alert('Player 1 : ${firstNum}점 \nPlayer 2 : ${secondNum}점 \nPlayer 1가 이겼습니다.')
-                reset()
-            }
-            if (secondNum > firstNum) {
-                alert('Player 1 : ${firstNum}점 \nPlayer 2 : ${secondNum}점 \nPlayer 2가 이겼습니다.')
-                reset()
-            }
-        }
-
         // 턴 수 증가
         turnNumber.textContent = Number(turnNumber.textContent) + 1
 
@@ -163,19 +210,8 @@ start.addEventListener('click', v => {
             }
         })
         playerCard = document.querySelectorAll('.playerCard')
-
-        // 승패
-        if (hostNum < secondNum && hostNum < firstNum) {
-            setTimeout()
-            alert('모두 탈락! 다시 시작해주세요.')
-        }
-        if (hostNum < secondNum && hostNum > firstNum) {
-            alert('Player 2 탈락! Player 1가 이겼습니다.')
-        }
-        if (hostNum < firstNum && hostNum > secondNum) {
-            alert('Player 1 탈락! Player 2가 이겼습니다.')
-        }
     }
+    setTimeout(whoIsWinner, 3000);
 })
 
 
@@ -193,7 +229,6 @@ playerCard.forEach(v => {
         }
     })
 })
-
 
 addButton.forEach(v => {
     v.addEventListener('click', function() {

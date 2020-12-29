@@ -140,3 +140,7 @@ button:focus {
     background-color: #fff;
     font-weight: 700;
 }
+
+.playerCard.checked {
+    background-color: #C4C4C4;
+}
