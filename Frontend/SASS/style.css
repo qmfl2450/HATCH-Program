@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  box-sizing: border-box; }
+
+h1 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.01em; }
+
+.parent .children:last-child {
+  color: #3DA8F5; }
+
+.parent .children:hover {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em; }

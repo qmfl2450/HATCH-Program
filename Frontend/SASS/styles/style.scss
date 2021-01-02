@@ -1,0 +1,22 @@
+@import './base/reset';
+
+@import './constants/colors';
+@import './constants/fonts';
+
+@import './mixins/typography';
+
+h1 {
+    @include base;
+}
+
+
+.parent {
+    .children {
+        &:last-child {
+            color: $blue;
+        }
+        &:hover {
+            @include small;
+        }
+    }
+}
