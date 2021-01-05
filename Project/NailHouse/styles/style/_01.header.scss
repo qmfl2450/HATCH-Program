@@ -1,0 +1,120 @@
+.border {
+    border-bottom: 1px solid $border;
+}
+
+.header {
+    @include rowflex(space-between);
+    height: 80px;
+}
+.left-header {
+    @include rowflex;
+    & .logo {
+        margin-right: 70px;
+        width: auto;
+        height: 24px;
+    }
+    & .category {
+        @include rowflex;
+        & li {
+            @include font-large;
+            font-weight: 700;
+            &.blue {
+                color: $blue;
+                margin: 0 37px;
+            }
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+}
+.right-header {
+    @include rowflex(flex-end);
+    & .srch-bar {
+        @include rowflex;
+        margin-right: 32px;
+        border: 1px solid $border;
+        border-radius: 4px;
+        position: relative;
+        & .srch {
+            padding-left: 40px;
+            width: 264px;
+            height: 40px;
+            &::placeholder {
+                @include font-base($tertiary);
+            }
+            &:hover {
+                background-color: $background;
+            }
+        }
+        & .icon-Search {
+            position: absolute;
+            left: 10px;
+            font-size: 20px;
+        }
+    }
+    & .user-menu {
+        @include rowflex;
+        margin-right: 32px;
+        & i {
+            @include rowflex(center);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            font-size: 24px;
+            color: $secondary;
+            &:hover {
+                color: $white;
+                background-color: $blue;
+            }
+        }
+        & img {
+            width: 32px;
+            height: auto;
+            &:hover {
+                border: 2px solid $blue;
+                border-radius: 50%
+            }
+        }
+    }
+    & .whrite-button {
+        @include rowflex;
+        position: relative;
+        & button {
+            @include font-base(color);
+            padding-right: 31px;
+            padding-left: 13px;
+            width: 88px;
+            height: 40px;
+            font-weight: 700;
+            &:hover {
+                background-color: $darkBlue;
+                cursor: pointer;
+            }
+        }
+        & .icon-Chevron {
+            position: absolute;
+            right: 13px;
+            font-size: 16px;
+            color: $white;
+        }
+    }
+}
+
+
+.category-detail {
+    @include rowflex;
+    height: 50px;
+    & li {
+        @include font-small;
+        margin-right: 20px;
+        font-weight: 700;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            color: $blue;
+        }
+    }
+}

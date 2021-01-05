@@ -1,0 +1,18 @@
+button {
+    border: 1px solid #3DA8F5;
+    border-radius: 4px;
+
+    background-color: #fff;
+    color: #3DA8F5;
+
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+}
+
+button.fill-button {
+    border: none;
+
+    background-color: #3DA8F5;
+    color: #fff;
+}
