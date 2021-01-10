@@ -79,10 +79,10 @@
         }
     }
     & .whrite-button {
-        @include rowflex;
-        position: relative;
         & button {
+            @include rowflex;
             @include font-base(color);
+            position: relative;
             padding-right: 31px;
             padding-left: 13px;
             width: 88px;
@@ -92,12 +92,12 @@
                 background-color: $darkBlue;
                 cursor: pointer;
             }
-        }
-        & .icon-Chevron {
-            position: absolute;
-            right: 13px;
-            font-size: 16px;
-            color: $white;
+            & .icon-Chevron {
+                position: absolute;
+                right: 13px;
+                font-size: 16px;
+                color: $white;
+            }
         }
     }
 }

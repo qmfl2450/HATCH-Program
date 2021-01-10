@@ -113,24 +113,23 @@ button.fill-button {
       .right-header .user-menu img:hover {
         border: 2px solid #3DA8F5;
         border-radius: 50%; }
-  .right-header .whrite-button {
+  .right-header .whrite-button button {
     display: flex;
     align-items: center;
-    position: relative; }
-    .right-header .whrite-button button {
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: -0.01em;
-      color: color;
-      padding-right: 31px;
-      padding-left: 13px;
-      width: 88px;
-      height: 40px;
-      font-weight: 700; }
-      .right-header .whrite-button button:hover {
-        background-color: #2280C3;
-        cursor: pointer; }
-    .right-header .whrite-button .icon-Chevron {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: color;
+    position: relative;
+    padding-right: 31px;
+    padding-left: 13px;
+    width: 88px;
+    height: 40px;
+    font-weight: 700; }
+    .right-header .whrite-button button:hover {
+      background-color: #2280C3;
+      cursor: pointer; }
+    .right-header .whrite-button button .icon-Chevron {
       position: absolute;
       right: 13px;
       font-size: 16px;
