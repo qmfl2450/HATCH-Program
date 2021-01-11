@@ -1,3 +1,4 @@
+const { off } = require('../../../helper/db')
 const db = require('../../../helper/db')
 
 const ACCOUNT = 'account'
@@ -17,13 +18,31 @@ const userCreate = user => {
   return db(ACCOUNT).insert(user)
 }
 
-const userSearch = db.select('id', 'salt', 'name', 'updatedAt', 'createdAt').from(ACCOUNT)
-
-
-const userDelete = id => {
-  return db(ACCOUNT).del().where('id', id)
+// 유저 전체 조회
+const usersRead = (offset, pageSize) => {
+  return db(ACCOUNT)
+    .select('id', 'name', 'updatedAt', 'createdAt')
+    .where({enabled: 'enable'})
+    .offset(offset)
+    .limit(pageSize)
+    .orderBy('id')
+    .then(data => data)
 }
 
+// 유저 상세 조회
+const findUser = id => {
+  return db(ACCOUNT)
+    .select('id', 'name', 'updatedAt', 'createdAt')
+    .where({id: id, enabled: 'enable'})
+    .then(data => data)
+}
+
+// 유저 수정
+const userUpdate = (id, updateData) => {
+  return db(ACCOUNT).update(updateData).where('id', id)
+}
+
+
 module.exports = {
-  userFindById, userCreate, userSearch
+  userFindById, userCreate, usersRead, findUser, userUpdate
 }
