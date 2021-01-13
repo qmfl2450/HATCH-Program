@@ -1,27 +1,12 @@
 const {Router} = require('express')
 
-const userModel = require('./user')
 const service = require('./user.service')
 const {getSalt, getExpiredTime, getHash} = require('../lib/hash')
 const db = require('../../../helper/db')
 
 const router = Router()
 
-// let USER_DATA = [
-//   new userModel('red', '68add1e4a6a8d4ae0c803a5a88debecf3ffe76437ba14735b1e3b141936941e7', 'aa1b86b930a10cf7a3dbb6f80a1be460e9a3738d062f8108d5040fa60b18a323', '누구개1', 'enable', new Date(), new Date()),
-//   new userModel('blue', '68add1e4a6a8d4ae0c803a5a88debecf3ffe76437ba14735b1e3b141936941e7', 'aa1b86b930a10cf7a3dbb6f80a1be460e9a3738d062f8108d5040fa60b18a323', '누구개2', 'enable', new Date(), new Date()),
-//   new userModel('yellow', '68add1e4a6a8d4ae0c803a5a88debecf3ffe76437ba14735b1e3b141936941e7', 'aa1b86b930a10cf7a3dbb6f80a1be460e9a3738d062f8108d5040fa60b18a323', '아무개3', 'enable', new Date(), new Date()),
-//   new userModel('pink', '68add1e4a6a8d4ae0c803a5a88debecf3ffe76437ba14735b1e3b141936941e7', 'aa1b86b930a10cf7a3dbb6f80a1be460e9a3738d062f8108d5040fa60b18a323', '아무개4', 'enable', new Date(), new Date()),
-//   new userModel('black', '68add1e4a6a8d4ae0c803a5a88debecf3ffe76437ba14735b1e3b141936941e7', 'aa1b86b930a10cf7a3dbb6f80a1be460e9a3738d062f8108d5040fa60b18a323', '누구개5', 'disable', new Date(), new Date()),
-//   new userModel('gold', '68add1e4a6a8d4ae0c803a5a88debecf3ffe76437ba14735b1e3b141936941e7', 'aa1b86b930a10cf7a3dbb6f80a1be460e9a3738d062f8108d5040fa60b18a323', '아무개6', 'enable', new Date(), new Date())
-// ]
-
 const connectStatus = {}
-
-// const userFindById = id => USER_DATA.find(user => {
-//   if (user.enable === 'disable') return false
-//   return user.id === id
-// })
 
 // 유저 목록을 조회 API
 router.get('/', async (req, res) => {
@@ -161,7 +146,6 @@ router.patch('/:id', async (req, res) => {
   const {pw, name, enable} = req.body
 
   const [user] = await service.findUser(id)
-
   const salt = getSalt()
   const newPw = getHash(pw, salt)
 
