@@ -51,6 +51,10 @@ router.post('/', async (req, res) => {
     }
     try {
         const userCreate = await service.userCreate(user)
+        // console.log(userCreate)
+        // console.log(user)
+        // console.log(userCreate.datavalues)
+        console.log(userCreate.id)
         res.json({
             name: user.name
         })

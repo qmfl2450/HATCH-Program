@@ -38,3 +38,5 @@ jspm_packages
 .idea/
 rest-api.iml
 app/logger/log
+
+.env
