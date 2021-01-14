@@ -1,19 +1,8 @@
-const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
-const nunjucks = require('nunjucks');
-
+const app = require('./app')
 const {sequelize} = require('./models');
 
-const app = express();
-app.set('port', process.env.PORT || 3001);
-app.set('view engine', 'html');
-nunjucks.configure('views', {
-    express: app,
-    watch: true,
-});
-// 서버 실행 시 MySQL과 연동
-// sequelize = config.json의 'development' 객체
+const port = 3000
+
 sequelize.sync({force: false})
     .then(() => {
         console.log('데이터베이스 연결 성공');
@@ -22,25 +11,6 @@ sequelize.sync({force: false})
         console.error(err);
     });
 
-app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
-
-app.use(express.urlencoded({extended: false}));
-
-app.use((req, res, next) => {
-    const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
-    error.status = 404;
-    next(error);
-});
-
-app.use((err, req, res, next) => {
-    res.locals.message = err.message;
-    res.lacals.error = process.env.NODE_ENV !== 'production' ? err : {};
-    res.status(err.status || 500);
-    res.render('error');
-});
-
-app.listen(app.get('port'), () => {
-    console.log(app.get('port'), '번 포트에서 대기 중')
+app.listen(port, () => {
+  console.log('start server')
 })

@@ -1,22 +1,13 @@
 {
-  "name": "sam-study-rest",
+  "name": "sequelize",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rosd89/sam-study-rest.git"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rosd89/sam-study-rest/issues"
-  },
-  "homepage": "https://github.com/rosd89/sam-study-rest#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
