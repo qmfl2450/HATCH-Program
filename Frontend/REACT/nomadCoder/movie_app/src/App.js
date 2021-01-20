@@ -1,19 +1,16 @@
 import React from 'react';
+import {HashRouter, Route} from 'react-router-dom';
+import Home from './routes/Home';
+import About from './routes/About';
 
-class App extends React.Component {
-  state = {
-    isLoading: true,
-    movie: []
-  };
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({isLoading: false});
-    }, 6000);
-  }
-  render() {
-    const {isLoading} = this.state;
-    return <div>{isLoading ? "Loading..." : "We are ready"}</div>;
-  }
+
+function App() {
+  return (
+    <HashRouter>
+      <Route path='/' exact={true} component={Home} />
+      <Route path='/about' component={About} />
+    </HashRouter>
+  );
 }
 
 export default App;
