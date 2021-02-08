@@ -2,6 +2,12 @@ import React from 'react';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
 
+const Container = styled.div``;
+
+const Form = styled.form``;
+
+const Input = styled.input``;
+
 const TVPresenter = ({movieResult, tvResult, searchTerm, loading, error}) => null;
 
 TVPresenter.propTypes = {
