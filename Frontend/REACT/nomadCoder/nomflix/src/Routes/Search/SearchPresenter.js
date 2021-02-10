@@ -1,20 +1,60 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
+import Loader from 'Components/Loader';
+import Section from 'Components/Section';
+import Message from 'Components/Message';
 
-const Container = styled.div``;
+const Container = styled.div`
+    padding: 0px 20px;
+`;
 
-const Form = styled.form``;
+const Form = styled.form`
+    margin-bottom: 50px;
+    width: 100%;
+`;
 
-const Input = styled.input``;
+const Input = styled.input`
+    all: unset;
+    font-size: 28px;
+    width: 100%;
+`;
 
-const TVPresenter = ({movieResult, tvResult, searchTerm, loading, error}) => null;
+const TVPresenter = ({movieResult, tvResult, searchTerm, handleSubmit, updateTerm, loading, error}) => (
+    <Container>
+        <Form onSubmit={handleSubmit}>
+            <Input placeholder="Search Movies or TV Shows..." value={searchTerm} onChange={updateTerm} />
+        </Form>
+        {loading ? <Loader /> : (
+            <>
+                {movieResult && movieResult.length > 0 && 
+                <Section title='Movie Results'>
+                    {movieResult.map(movie => (
+                        <span key={movie.id}>{movie.title}</span>
+                    ))}
+                </Section>
+                }
+                {tvResult && tvResult.length > 0 && 
+                <Section title='TV Show Results'>
+                    {tvResult.map(show => (
+                        <span key={show.id}>{show.name}</span>
+                    ))}
+                </Section>
+                }
+                {error && <Message color='#e74c3c' text={error} />}
+                {tvResult && movieResult && tvResult.length ===0 && movieResult === 0 && <Message text='Nothing Found' color='#95a5a6' />}
+            </>
+        )}
+    </Container>
+);
 
 TVPresenter.propTypes = {
-    movieResult: propTypes.object,
-    tvResult: propTypes.object,
+    movieResult: propTypes.array,
+    tvResult: propTypes.array,
     searchTerm: propTypes.string,
-    loading: propTypes.isRequired,
+    handleSubmit: propTypes.func.isRequired,
+    updateTerm: propTypes.func.isRequired,
+    loading: propTypes.bool.isRequired,
     error: propTypes.string
 };
 
