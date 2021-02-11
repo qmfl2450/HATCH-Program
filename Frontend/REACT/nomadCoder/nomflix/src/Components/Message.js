@@ -10,6 +10,7 @@ const Container = styled.div`
 
 const Text = styled.span`
     color: ${props => props.color};
+    font-size: 18px;
 `;
 
 const Message = ({text, color}) => (
