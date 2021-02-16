@@ -7,15 +7,24 @@ const productionFindById = (id) => {
     return Promise.reject("id 값이 없습니다.");
   }
 
-  return (
-    db(ACCOUNT)
-      // .join('category', 'product_options')
-      .select("*")
-      .andWhere("id", id)
-      .then(([item]) => item)
-  );
+  return db(ACCOUNT)
+    .select("*")
+    .andWhere("id", id)
+    .then(([item]) => item);
+};
+
+const FindByproductId = (product_id) => {
+  if (!product_id) {
+    return Promise.reject("id 값이 없습니다.");
+  }
+
+  return db(ACCOUNT)
+    .select("*")
+    .andWhere("product_id", product_id)
+    .then(([item]) => item);
 };
 
 module.exports = {
   productionFindById,
+  FindByproductId,
 };
