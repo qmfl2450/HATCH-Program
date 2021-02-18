@@ -1,18 +1,31 @@
 const { Router } = require("express");
-
-const service = require("./production.service");
-
 const router = Router();
+const service = require("./production.service");
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const product = await service.productionFindById(id);
+  const delivery = await service.deliveryFindById(id);
+  const option = await service.FindByproductId(id, "product_options");
+  const desc = await service.FindByproductId(id, "product_desc");
+  const image = await service.FindByproductId(id, "product_images");
+  console.log(image[0].id);
+
+  const { category_id } = product;
+  const category = await service.categoryFindById(category_id);
+
   if (!product) {
     res.status(404).json({});
     return;
   }
   res.json({
     id,
+    category: {
+      large: category.large_category,
+      medium: category.medium_category,
+      small: category.small_category,
+      xsmall: category.xsmall_category,
+    },
     production: {
       brand: product.brand_name,
       name: product.product_name,
@@ -20,17 +33,13 @@ router.get("/:id", async (req, res) => {
       selling_price: product.selling_price,
       sale_percentage: product.sale_percentage,
       badge: product.badge,
-      reserves: product.reserves,
-      is_selling: product.is_selling,
-      is_sold_out: product.is_sold_out,
-      production_table: {
-        model: product.model,
-        kc_certification: product.kc_certification,
-        manufacture_contry: product.manufacture_contry,
-        as_standard: product.as_standard,
-        manager_number: product.manager_number,
+      image: {
+        id: image.id,
       },
+      option,
+      desc,
     },
+    delivery,
   });
 });
 
