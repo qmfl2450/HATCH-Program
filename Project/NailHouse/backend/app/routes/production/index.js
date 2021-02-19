@@ -33,10 +33,8 @@ router.get("/:id", async (req, res) => {
       selling_price: product.selling_price,
       sale_percentage: product.sale_percentage,
       badge: product.badge,
-      image: {
-        id: image.id,
-      },
-      option,
+      image: image.map((v) => v.image_url),
+      option: {},
       desc,
     },
     delivery,

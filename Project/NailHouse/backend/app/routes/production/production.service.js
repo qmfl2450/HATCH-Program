@@ -13,7 +13,7 @@ const productionFindById = (id) => {
     .then(([item]) => item);
 };
 
-const FindByproductId = (id, table) => {
+const FindByproductId = (id, table, field) => {
   if (!id) {
     return Promise.reject("id 값이 없습니다.");
   }
