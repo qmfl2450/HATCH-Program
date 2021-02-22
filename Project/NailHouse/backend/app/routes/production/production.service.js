@@ -1,28 +1,69 @@
 const db = require("../../../helper/db");
 
-const ACCOUNT = "productions";
+const categoryFindById = (id) => {
+  if (!id) {
+    return Promise.reject("id 값이 없습니다.");
+  }
+
+  return db("category")
+    .select("*")
+    .andWhere("id", id)
+    .then(([item]) => item);
+};
 
 const productionFindById = (id) => {
   if (!id) {
     return Promise.reject("id 값이 없습니다.");
   }
 
-  return db(ACCOUNT)
+  return db("productions")
     .select("*")
+    .andWhere("enabled", 1)
     .andWhere("id", id)
     .then(([item]) => item);
 };
 
-const FindByproductId = (id, table, field) => {
+const imageFindByProductId = (id) => {
   if (!id) {
     return Promise.reject("id 값이 없습니다.");
   }
-  if (!table) {
-    return Promise.reject("table 값이 없습니다.");
+
+  return db("product_images")
+    .select("image_url")
+    .andWhere("enabled", 1)
+    .andWhere("product_id", id)
+    .then((item) => item);
+};
+
+const optionFindByProductId = (id) => {
+  if (!id) {
+    return Promise.reject("id 값이 없습니다.");
   }
 
-  return db(table).select("*").andWhere("product_id", id);
-  // .then((item) => item);
+  return db("product_options")
+    .select(
+      "option_name",
+      "option_quantity",
+      "origin_price",
+      "selling_price",
+      "sale_percentage",
+      "is_sold_out"
+    )
+    .andWhere("enabled", 1)
+    .andWhere("product_id", id)
+    .then((item) => item);
+};
+
+const descFindByProductId = (id) => {
+  if (!id) {
+    return Promise.reject("id 값이 없습니다.");
+  }
+
+  return db("product_desc")
+    .select("image_url")
+    .andWhere("enabled", 1)
+    .andWhere("product_id", id)
+    .then((item) => item);
 };
 
 const deliveryFindById = (id) => {
@@ -36,20 +77,11 @@ const deliveryFindById = (id) => {
     .then(([item]) => item);
 };
 
-const categoryFindById = (id) => {
-  if (!id) {
-    return Promise.reject("id 값이 없습니다.");
-  }
-
-  return db("category")
-    .select("*")
-    .andWhere("id", id)
-    .then(([item]) => item);
-};
-
 module.exports = {
-  productionFindById,
-  FindByproductId,
-  deliveryFindById,
   categoryFindById,
+  productionFindById,
+  imageFindByProductId,
+  optionFindByProductId,
+  descFindByProductId,
+  deliveryFindById,
 };

@@ -9,8 +9,8 @@ const router = Router();
 
 router.use("/user", user);
 router.use("/production", production);
-router.use("/production/review", review);
-router.use("/production/question", question);
+router.use("/review", review);
+router.use("/question", question);
 
 // default route
 router.use((req, res) => res.status(404).send());

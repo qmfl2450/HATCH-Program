@@ -1,6 +1,6 @@
 const db = require("../../../helper/db");
 
-const ACCOUNT = "users";
+const ACCOUNT = "questions";
 
 const paged = async (
   q,
@@ -24,7 +24,17 @@ const paged = async (
   }));
 };
 
-const userFindById = (id) => {
+const nicknameFindById = (id) => {
+  if (!id) {
+    return Promise.reject("id 값이 없습니다.");
+  }
+  return db("users")
+    .select("nickname")
+    .andWhere("id", id)
+    .then(([item]) => item);
+};
+
+const questionFindById = (id) => {
   if (!id) {
     return Promise.reject("id 값이 없습니다.");
   }
@@ -35,27 +45,38 @@ const userFindById = (id) => {
     .then(([item]) => item);
 };
 
-const userFindAll = ({ name, page = 10, pageSize = 10 }) => {
-  const q = db(ACCOUNT).andWhere("enabled", 1);
+const questionFindAll = ({ product_id, page = 10, pageSize = 10 }) => {
+  const q = db("questions as q")
+    .innerJoin("users as u", "q.user_id", "u.id")
+    .andWhere("q.enabled", 1)
+    .andWhere("q.product_id", product_id);
 
-  if (name) {
-    q.andWhere("name", "like", `%${name}%`);
-  }
+  const fields = [
+    "q.id",
+    "q.question_type",
+    "q.question",
+    "q.is_buyer",
+    "q.is_secret",
+    "q.created_at",
+    "q.user_id",
+    "u.nickname as user_name",
+  ];
 
-  return paged(q, { page, pageSize });
+  return paged(q, { key: "q.id", fields, page, pageSize });
 };
 
-const userCreate = (user) => {
-  return db(ACCOUNT).insert(user);
+const questionCreate = (question) => {
+  return db(ACCOUNT).insert(question);
 };
 
-const userUpdate = (id, user) => {
-  return db(ACCOUNT).update(user).andWhere("id", id);
+const questionUpdate = (id, question) => {
+  return db(ACCOUNT).update(question).andWhere("id", id);
 };
 
 module.exports = {
-  userFindById,
-  userFindAll,
-  userCreate,
-  userUpdate,
+  questionFindById,
+  questionFindAll,
+  questionCreate,
+  questionUpdate,
+  nicknameFindById,
 };

@@ -3,8 +3,9 @@ const router = Router();
 
 const service = require("./question.service");
 
-// 유저 목록을 조회 API
-router.get("/", (req, res) => {
+// 문의 목록 조회 API
+router.get("/", async (req, res) => {
+  const product_id = req.query.product_id;
   const page = req.query.page === undefined ? 1 : +req.query.page;
   const pageSize = req.query.pageSize === undefined ? 2 : +req.query.pageSize;
   const name = req.query.name;
@@ -18,66 +19,85 @@ router.get("/", (req, res) => {
     return;
   }
 
-  return service
-    .userFindAll({ name, page, pageSize })
-    .then((result) => {
-      res.json(result);
-    })
-    .catch((e) => {
-      res.status(500).json(e);
+  let result;
+  try {
+    result = await service.questionFindAll({
+      product_id,
+      name,
+      page,
+      pageSize,
     });
+  } catch (e) {
+    res.status(500).json(e);
+  }
+
+  res.json({
+    page: result.page,
+    pageSize: result.pageSize,
+    total: result.total,
+    question: result.items,
+  });
 });
 
-// 유저 생성 API
+// 문의 생성 API
 router.post("/", async (req, res) => {
-  const { pw, id, nickname } = req.body;
-  if (!pw) {
-    res.status(400).json({ message: '"pw"가 입력되지 않았습니다.' });
+  // const user_id = req.header['user_id']
+  const { product_id } = req.query;
+  const { user_id, question_type, question, is_buyer, is_secret } = req.body;
+  if (!product_id) {
+    res.status(400).json({ message: '"product_id"가 입력되지 않았습니다.' });
     return;
   }
-  if (!id) {
-    res.status(400).json({ message: '"id"가 입력되지 않았습니다.' });
+  if (!user_id) {
+    res.status(400).json({ message: '"user_id"가 입력되지 않았습니다.' });
     return;
   }
-  if (!nickname) {
-    res.status(400).json({ message: '"nickname"가 입력되지 않았습니다.' });
+  if (!question_type) {
+    res.status(400).json({ message: '"question_type"가 입력되지 않았습니다.' });
+    return;
+  }
+  if (!question) {
+    res.status(400).json({ message: '"question"가 입력되지 않았습니다.' });
+    return;
+  }
+  if (!is_buyer) {
+    res.status(400).json({ message: '"is_buyer"가 입력되지 않았습니다.' });
+    return;
+  }
+  if (!is_secret) {
+    res.status(400).json({ message: '"is_secret"가 입력되지 않았습니다.' });
     return;
   }
 
-  const salt = getSalt();
-  const user = {
-    salt,
-    pw: getHash(pw, salt),
-    id,
-    nickname,
-    enabled: 1,
+  const new_question = {
+    product_id,
+    user_id,
+    question_type,
+    question,
+    is_buyer,
+    is_secret,
     created_at: new Date(),
     updated_at: new Date(),
   };
   try {
-    const [id] = await service.userCreate(user);
-    res.json({
-      id: user.id,
-      nickname: user.nickname,
-      created_at: user.created_at,
-      updated_at: user.updated_at,
-    });
+    const [id] = await service.questionCreate(new_question);
+    res.json({ message: "문의가 등록되었습니다." });
   } catch (e) {
     res.status(500).json(e);
   }
 });
 
-// 유저 삭제 API
+// 문의 삭제 API
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await service.userFindById(id);
-    if (!user) {
+    const question = await service.questionFindById(id);
+    if (!question) {
       res.status(404).json({});
       return;
     }
 
-    await service.userUpdate(user.id, {
+    await service.questionUpdate(question.id, {
       enabled: 0,
       updated_at: new Date(),
     });

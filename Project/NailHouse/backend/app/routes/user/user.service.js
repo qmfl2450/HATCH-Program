@@ -37,12 +37,13 @@ const userFindById = (id) => {
 
 const userFindAll = ({ name, page = 10, pageSize = 10 }) => {
   const q = db(ACCOUNT).andWhere("enabled", 1);
+  const fields = ["id", "nickname", "created_at", "updated_at"];
 
   if (name) {
     q.andWhere("name", "like", `%${name}%`);
   }
 
-  return paged(q, { page, pageSize });
+  return paged(q, { fields, page, pageSize });
 };
 
 const userCreate = (user) => {
