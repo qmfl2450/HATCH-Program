@@ -11,11 +11,20 @@ const SearchForm = styled.form`
   height: 40px;
 `;
 
-const SearchLabel = styled.label``;
+const SearchLabel = styled.label`
+  width: 100%;
+`;
 
 const SearchInput = styled.input`
   padding: 8px 40px;
+  width: 100%;
   height: 100%;
+  &:focus {
+    background-color: #f7f8fa;
+  }
+  &::placeholder {
+    color: #a2a5af;
+  }
 `;
 
 const SearchIcon = styled.i`

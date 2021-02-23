@@ -5,6 +5,7 @@ import ImageUser from "../../assets/img/icon-default-user.svg";
 import Button from "../../Component/Button";
 import "../../assets/fonts/style.css";
 import SearchBar from "../SearchBar/SearchBar";
+import { SearchModal } from "../SearchBar/SearchModal";
 
 const Border = styled.div`
   display: flex;
@@ -18,7 +19,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e0e2e7;
   padding: 0 40px;
   height: 100%;
   width: 100%;
@@ -52,13 +52,21 @@ const Chevron = styled.i`
 `;
 
 export const GNBMedium = () => {
+  const SearchBarClick = () => {
+    <SearchModal />;
+  };
+
   return (
     <Border>
       <Container>
         <GNBLeft />
         <Right>
           <UserIcons>
-            <UserIcon className="icon-Search" margin />
+            <UserIcon
+              className="icon-Search"
+              margin
+              onClick={SearchBarClick()}
+            />
             <UserIcon className="icon-Bookmark" margin />
             <UserIcon className="icon-Bell" margin />
             <UserIcon className="icon-Cart" margin />

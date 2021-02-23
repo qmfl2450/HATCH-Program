@@ -12,7 +12,7 @@ const globalStyles = createGlobalStyle`
     body {
         font-family: "Noto Sans KR", sans-serif;
     }
-    button, a, input{
+    button, a, input, form{
         font-family: "Noto Sans KR", sans-serif;
         border: none;
         background-color: inherit;
