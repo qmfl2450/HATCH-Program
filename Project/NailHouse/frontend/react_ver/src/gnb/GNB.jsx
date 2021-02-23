@@ -1,8 +1,9 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import { HeaderLarge, HeaderMedium, HeaderSmall } from "./GNBPresenter";
+import { GNBSmall } from "./GNBSmall/GNBSmall";
+import { GNBLarge, GNBMedium } from "./GNBBig/GNBBig";
 
-function Header() {
+function GNB() {
   const isLarge = useMediaQuery({
     query: "(min-width:1024px)",
   });
@@ -15,11 +16,11 @@ function Header() {
 
   return (
     <>
-      {isLarge && <HeaderLarge />}
-      {isMedium && <HeaderMedium />}
-      {isSmall && <HeaderSmall />}
+      {isLarge && <GNBLarge />}
+      {isMedium && <GNBMedium />}
+      {isSmall && <GNBSmall />}
     </>
   );
 }
 
-export default Header;
+export default GNB;
