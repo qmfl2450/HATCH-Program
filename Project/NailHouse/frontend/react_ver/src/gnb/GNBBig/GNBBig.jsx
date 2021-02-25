@@ -52,21 +52,13 @@ const Chevron = styled.i`
 `;
 
 export const GNBMedium = () => {
-  const SearchBarClick = () => {
-    <SearchModal />;
-  };
-
   return (
     <Border>
       <Container>
         <GNBLeft />
         <Right>
           <UserIcons>
-            <UserIcon
-              className="icon-Search"
-              margin
-              onClick={SearchBarClick()}
-            />
+            <UserIcon className="icon-Search" margin onClick={} />
             <UserIcon className="icon-Bookmark" margin />
             <UserIcon className="icon-Bell" margin />
             <UserIcon className="icon-Cart" margin />
