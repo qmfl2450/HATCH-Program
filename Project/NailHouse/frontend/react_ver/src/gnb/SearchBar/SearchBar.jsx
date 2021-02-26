@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import useInput from "../../Hooks/useInput";
 import "../../assets/fonts/style.css";
+
+const SearchBar = styled.div`
+  position: relative;
+`;
 
 const SearchForm = styled.form`
   position: relative;
@@ -9,10 +14,6 @@ const SearchForm = styled.form`
   border-radius: 4px;
   width: ${(props) => (props.big ? "100%" : "266px")};
   height: 40px;
-`;
-
-const SearchLabel = styled.label`
-  width: 100%;
 `;
 
 const SearchInput = styled.input`
@@ -36,24 +37,37 @@ const SearchIcon = styled.i`
   color: #858896;
 `;
 
-export default () => {
-  const [search, setInput] = useState("");
+const SearchModal = styled.div`
+  position: absolute;
+  top: 44px;
+  width: ${(props) => (props.big ? "100%" : "266px")};
+  height: 100%;
+  background-color: #fff;
+`;
 
-  const handleSubmit = (v) => {
-    v.preventDefault();
-    console.log(search);
-  };
+const LastSearch = styled.div``;
+
+const SearchList = styled.ol``;
+
+const SearchItems = styled.li``;
+
+export default () => {
+  const search = useInput("");
+
   return (
-    <SearchForm onSubmit={handleSubmit}>
-      <SearchIcon className="icon-Search" />
-      <SearchLabel>
+    <SearchBar>
+      <SearchForm>
+        <SearchIcon className="icon-Search" />
         <SearchInput
           type="text"
           placeholder="스토어 검색"
-          value={search}
-          onChange={(e) => setInput(e.target.value)}
+          value={search.value}
+          onChange={search.onChange}
         />
-      </SearchLabel>
-    </SearchForm>
+      </SearchForm>
+      <SearchModal>
+        <LastSearch></LastSearch>
+      </SearchModal>
+    </SearchBar>
   );
 };
