@@ -58,7 +58,7 @@ export const GNBMedium = () => {
         <GNBLeft />
         <Right>
           <UserIcons>
-            <UserIcon className="icon-Search" margin onClick={} />
+            <UserIcon className="icon-Search" margin />
             <UserIcon className="icon-Bookmark" margin />
             <UserIcon className="icon-Bell" margin />
             <UserIcon className="icon-Cart" margin />
