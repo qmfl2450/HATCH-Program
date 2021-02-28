@@ -9,6 +9,8 @@ const Button = styled.button`
   color: ${(props) => (props.fill ? "#fff" : "#3DA8F5")};
   font-size: ${(props) => props.size};
   font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
 `;
 
 export default Button;

@@ -9,14 +9,18 @@ const globalStyles = createGlobalStyle`
         margin: 0;
         font-size: 16px;
     }
-    body {
+    body, li, ol, ul {
         font-family: "Noto Sans KR", sans-serif;
     }
-    button, a, input, form{
+    button, a, input, form {
         font-family: "Noto Sans KR", sans-serif;
         border: none;
         background-color: inherit;
+        color: inherit;
         &:hover {
+            outline: none;
+        }
+        &:focus {
             outline: none;
         }
     }

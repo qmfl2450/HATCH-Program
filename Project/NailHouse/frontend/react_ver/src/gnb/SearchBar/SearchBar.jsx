@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import useInput from "../../Hooks/useInput";
 import "../../assets/fonts/style.css";
+import SearchModal from "./SearchModal";
 
 const SearchBar = styled.div`
   position: relative;
@@ -37,26 +38,20 @@ const SearchIcon = styled.i`
   color: #858896;
 `;
 
-const SearchModal = styled.div`
-  position: absolute;
-  top: 44px;
-  width: ${(props) => (props.big ? "100%" : "266px")};
-  height: 100%;
-  background-color: #fff;
-`;
-
-const LastSearch = styled.div``;
-
-const SearchList = styled.ol``;
-
-const SearchItems = styled.li``;
-
 export default () => {
-  const search = useInput("");
+  const [submit, setSubmit] = useState(false);
+
+  const search = useInput();
 
   return (
     <SearchBar>
-      <SearchForm>
+      <SearchForm
+        onKeyDown={(e) => {
+          if (e.keyCode == 13) {
+            e.preventDefault();
+          }
+        }}
+      >
         <SearchIcon className="icon-Search" />
         <SearchInput
           type="text"
@@ -65,9 +60,7 @@ export default () => {
           onChange={search.onChange}
         />
       </SearchForm>
-      <SearchModal>
-        <LastSearch></LastSearch>
-      </SearchModal>
+      <SearchModal />
     </SearchBar>
   );
 };

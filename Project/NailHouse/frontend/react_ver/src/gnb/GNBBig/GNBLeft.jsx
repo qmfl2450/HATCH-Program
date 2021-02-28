@@ -21,6 +21,8 @@ const NavItem = styled.a`
   margin-right: 24px;
   font-size: 18px;
   font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.02em;
   color: #3f4150;
   &:last-child {
     margin-right: 0;
