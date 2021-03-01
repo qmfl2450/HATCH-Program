@@ -6,7 +6,7 @@ import "../../assets/fonts/font.css";
 
 const SearchModal = styled.div`
   position: absolute;
-  display: none;
+  display: ${(props) => (props.modal ? "flex" : "none")};
   flex-direction: column;
   top: 44px;
   border: 1px solid #e0e2e7;
@@ -36,14 +36,20 @@ const SearchList = styled.ol`
   height: 100%;
 `;
 
-export default () => {
+export default ({ modal, searchValues }) => {
   return (
-    <SearchModal>
+    <SearchModal modal={modal}>
       <LastSearch>
         <SearchSpan>최근 검색어</SearchSpan>
         <SearchSpan>전체 삭제</SearchSpan>
       </LastSearch>
-      <SearchList></SearchList>
+      <SearchList>
+        {searchValues.length === 0 ? (
+          <></>
+        ) : (
+          searchValues.map((v) => <SearchItem searchText={v} />)
+        )}
+      </SearchList>
     </SearchModal>
   );
 };

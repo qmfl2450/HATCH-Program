@@ -23,7 +23,7 @@ const DeleteSearch = styled.i`
   color: #a2a5af;
 `;
 
-export default (searchText) => {
+export default ({ searchText }) => {
   return (
     <SearchItems>
       <SearchItem>{searchText}</SearchItem>

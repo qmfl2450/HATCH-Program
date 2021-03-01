@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import useInput from "../../Hooks/useInput";
-import "../../assets/fonts/style.css";
 import SearchModal from "./SearchModal";
+import { EnterState, ModalState, ArrayState } from "./useModal";
+import "../../assets/fonts/style.css";
 
 const SearchBar = styled.div`
   position: relative;
@@ -39,16 +40,25 @@ const SearchIcon = styled.i`
 `;
 
 export default () => {
-  const [submit, setSubmit] = useState(false);
-
   const search = useInput();
+  const { pressEnter } = EnterState();
+  const { modal, showModal } = ModalState();
+
+  const searchValues = ArrayState(5);
 
   return (
     <SearchBar>
       <SearchForm
         onKeyDown={(e) => {
-          if (e.keyCode == 13) {
+          if (e.keyCode === 13 && search.value !== 0) {
+            pressEnter();
+            searchValues.addItem(search.value);
             e.preventDefault();
+          }
+        }}
+        onClick={() => {
+          if (searchValues.array.length !== 0) {
+            showModal();
           }
         }}
       >
@@ -60,7 +70,7 @@ export default () => {
           onChange={search.onChange}
         />
       </SearchForm>
-      <SearchModal />
+      <SearchModal modal={modal} searchValues={searchValues.array} />
     </SearchBar>
   );
 };
