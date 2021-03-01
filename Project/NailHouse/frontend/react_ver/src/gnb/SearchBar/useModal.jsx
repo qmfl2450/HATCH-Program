@@ -17,7 +17,11 @@ export const ModalState = () => {
     setModal(true);
   };
 
-  return { modal, showModal };
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  return { modal, showModal, closeModal };
 };
 
 export const ArrayState = (limit) => {
@@ -25,12 +29,18 @@ export const ArrayState = (limit) => {
 
   const addItem = (item) => {
     if (array.length === limit) {
-      const popArray = array;
-      popArray.shift();
-      setArray([...popArray]);
+      const limitArray = array;
+      limitArray.shift();
+      setArray([...limitArray]);
     }
     setArray([...array, item]);
   };
 
-  return { array, addItem };
+  const deleteItem = (item) => {
+    const deleteArray = array;
+    deleteArray.filter((v) => v !== item);
+    setArray([...deleteArray]);
+  };
+
+  return { array, addItem, deleteItem };
 };

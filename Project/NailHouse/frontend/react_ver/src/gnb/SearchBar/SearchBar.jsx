@@ -42,7 +42,7 @@ const SearchIcon = styled.i`
 export default () => {
   const search = useInput();
   const { pressEnter } = EnterState();
-  const { modal, showModal } = ModalState();
+  const { modal, showModal, closeModal } = ModalState();
 
   const searchValues = ArrayState(5);
 
@@ -61,6 +61,7 @@ export default () => {
             showModal();
           }
         }}
+        onBlur={closeModal}
       >
         <SearchIcon className="icon-Search" />
         <SearchInput
