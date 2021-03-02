@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import SearchItem from "./SearchItem";
 import "../../assets/fonts/style.css";
@@ -27,6 +27,11 @@ const SearchSpan = styled.span`
   font-size: 13px;
   line-height: 20px;
   color: #858896;
+  &:last-child {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 const SearchList = styled.ol`
@@ -44,10 +49,12 @@ export default ({ modal, searchValues }) => {
         <SearchSpan>전체 삭제</SearchSpan>
       </LastSearch>
       <SearchList>
-        {searchValues.length === 0 ? (
+        {searchValues.array.length === 0 ? (
           <></>
         ) : (
-          searchValues.map((v) => <SearchItem searchText={v} />)
+          searchValues.array.map((v) => (
+            <SearchItem searchText={v} searchValues={searchValues} />
+          ))
         )}
       </SearchList>
     </SearchModal>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import "../../assets/fonts/style.css";
 import "../../assets/fonts/font.css";
@@ -21,13 +21,22 @@ const SearchItem = styled.span`
 const DeleteSearch = styled.i`
   font-size: 16px;
   color: #a2a5af;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-export default ({ searchText }) => {
+export default ({ searchText, searchValues }) => {
   return (
     <SearchItems>
       <SearchItem>{searchText}</SearchItem>
-      <DeleteSearch className="icon-Close" />
+      <DeleteSearch
+        className="icon-Close"
+        onClick={() => {
+          searchValues.deleteItem(searchText);
+          console.log(searchValues.array);
+        }}
+      />
     </SearchItems>
   );
 };
