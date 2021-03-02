@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import ImageLogo from "../../assets/img/logo/logo.svg";
-import "../../assets/fonts/style.css";
+import ImageLogo from "../../../../assets/img/logo/logo.svg";
+import "../../../../assets/fonts/style.css";
 
 const Container = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ const UserIcon = styled.i`
   color: #858896;
 `;
 
-export const GNBSmall = () => {
+export const GNBMobile = () => {
   return (
     <Container>
       <Menu className="icon-menu" />

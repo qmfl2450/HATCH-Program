@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import useInput from "../../Hooks/useInput";
-import useSubmit from "../../Hooks/useSubmit";
-import useModal from "../../Hooks/useModal";
-import useArray from "../../Hooks/useArray";
+import useInput from "../../../../Hooks/useInput";
+import useSubmit from "../../../../Hooks/useSubmit";
+import useModal from "../../../../Hooks/useModal";
+import useArray from "../../../../Hooks/useArray";
 import SearchModal from "./SearchModal";
-import "../../assets/fonts/style.css";
+import "../../../../assets/fonts/style.css";
 
 const SearchBar = styled.div`
   position: relative;

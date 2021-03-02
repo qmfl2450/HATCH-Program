@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import ImageUser from "../../assets/img/icon-default-user.svg";
-import Button from "../../Component/Button";
+import ImageUser from "../../../../assets/img/Home/icon-default-user.svg";
+import Button from "../../../../Component/Button";
 import SearchBar from "../SearchBar/SearchBar";
-import "../../assets/fonts/style.css";
+import "../../../../assets/fonts/style.css";
 
 const Right = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const Chevron = styled.i`
   margin-left: 2px;
 `;
 
-export const GNBRightMidium = () => {
+export const GNBRightTablet = () => {
   return (
     <Right>
       <UserIcons>
@@ -49,7 +49,7 @@ export const GNBRightMidium = () => {
   );
 };
 
-export const GNBRightLarge = () => {
+export const GNBRightPC = () => {
   return (
     <Right>
       <SearchBar />

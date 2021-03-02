@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import "../../assets/fonts/style.css";
-import "../../assets/fonts/font.css";
+import "../../../../assets/fonts/style.css";
+import "../../../../assets/fonts/font.css";
 
 const SearchItems = styled.li`
   display: flex;

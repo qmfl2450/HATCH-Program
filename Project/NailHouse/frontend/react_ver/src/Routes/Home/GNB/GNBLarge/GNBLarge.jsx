@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import GNBLeft from "./GNBLeft";
-import { GNBRightMidium, GNBRightLarge } from "./GNBRight";
+import { GNBRightTablet, GNBRightPC } from "./GNBRight";
 
 const Border = styled.div`
   display: flex;
@@ -21,23 +21,23 @@ const Container = styled.div`
   max-width: 1120px;
 `;
 
-export const GNBMedium = () => {
+export const GNBTablet = () => {
   return (
     <Border>
       <Container>
         <GNBLeft />
-        <GNBRightMidium />
+        <GNBRightTablet />
       </Container>
     </Border>
   );
 };
 
-export const GNBLarge = () => {
+export const GNBPC = () => {
   return (
     <Border>
       <Container>
         <GNBLeft />
-        <GNBRightLarge />
+        <GNBRightPC />
       </Container>
     </Border>
   );

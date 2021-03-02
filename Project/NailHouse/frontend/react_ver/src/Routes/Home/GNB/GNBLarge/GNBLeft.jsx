@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ImageLogo from "../../assets/img/logo/logo.svg";
+import ImageLogo from "../../../../assets/img/logo/logo.svg";
 
 const Left = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ const Left = styled.div`
 `;
 
 const LogoLink = styled.a`
-  margin-right: 48px;
+  margin-right: 45px;
 `;
 
 const Logo = styled.img`
@@ -18,7 +18,7 @@ const Logo = styled.img`
 const Nav = styled.nav``;
 
 const NavItem = styled.a`
-  margin-right: 24px;
+  margin-right: 22px;
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
