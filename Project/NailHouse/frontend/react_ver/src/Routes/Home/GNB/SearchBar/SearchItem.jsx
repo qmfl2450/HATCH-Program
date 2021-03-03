@@ -26,7 +26,7 @@ const DeleteSearch = styled.i`
   }
 `;
 
-export default ({ searchText, searchValues }) => {
+export default ({ searchText, searchValues, searchModal }) => {
   return (
     <SearchItems>
       <SearchItem>{searchText}</SearchItem>
@@ -34,7 +34,6 @@ export default ({ searchText, searchValues }) => {
         className="icon-Close"
         onClick={() => {
           searchValues.deleteItem(searchText);
-          console.log(searchValues.array);
         }}
       />
     </SearchItems>

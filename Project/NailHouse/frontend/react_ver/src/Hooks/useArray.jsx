@@ -13,10 +13,14 @@ export default (limit) => {
   };
 
   const deleteItem = (item) => {
-    const deleteArray = array;
-    deleteArray.filter((v) => v !== item);
+    let deleteArray = array;
+    deleteArray = array.filter((v) => v !== item);
     setArray([...deleteArray]);
   };
 
-  return { array, addItem, deleteItem };
+  const deleteAllItem = () => {
+    setArray([]);
+  };
+
+  return { array, addItem, deleteItem, deleteAllItem };
 };

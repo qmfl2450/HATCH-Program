@@ -41,19 +41,30 @@ const SearchList = styled.ol`
   height: 100%;
 `;
 
-export default ({ modal, searchValues }) => {
+export default ({ searchModal, searchValues }) => {
   return (
-    <SearchModal modal={modal}>
+    <SearchModal modal={searchModal.modal}>
       <LastSearch>
         <SearchSpan>최근 검색어</SearchSpan>
-        <SearchSpan>전체 삭제</SearchSpan>
+        <SearchSpan
+          onClick={() => {
+            searchValues.deleteAllItem();
+            searchModal.closeModal();
+          }}
+        >
+          전체 삭제
+        </SearchSpan>
       </LastSearch>
       <SearchList>
         {searchValues.array.length === 0 ? (
           <></>
         ) : (
           searchValues.array.map((v) => (
-            <SearchItem searchText={v} searchValues={searchValues} />
+            <SearchItem
+              searchText={v}
+              searchValues={searchValues}
+              searchModal={searchModal}
+            />
           ))
         )}
       </SearchList>

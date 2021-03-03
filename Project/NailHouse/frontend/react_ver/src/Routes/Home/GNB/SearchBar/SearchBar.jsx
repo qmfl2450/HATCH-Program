@@ -44,7 +44,7 @@ const SearchIcon = styled.i`
 export default () => {
   const search = useInput();
   const { onSubmit } = useSubmit();
-  const { modal, showModal, closeModal } = useModal();
+  const searchModal = useModal();
   const searchValues = useArray(5);
 
   return (
@@ -59,7 +59,7 @@ export default () => {
         }}
         onClick={() => {
           if (searchValues.array.length !== 0) {
-            showModal();
+            searchModal.showModal();
           }
         }}
         // onBlur={closeModal}
@@ -72,7 +72,7 @@ export default () => {
           onChange={search.onChange}
         />
       </SearchForm>
-      <SearchModal modal={modal} searchValues={searchValues} />
+      <SearchModal searchModal={searchModal} searchValues={searchValues} />
     </SearchBar>
   );
 };
