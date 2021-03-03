@@ -54,7 +54,6 @@ export default () => {
           if (e.keyCode === 13 && search.value !== 0) {
             onSubmit();
             searchValues.addItem(search.value);
-            e.preventDefault();
           }
         }}
         onClick={() => {

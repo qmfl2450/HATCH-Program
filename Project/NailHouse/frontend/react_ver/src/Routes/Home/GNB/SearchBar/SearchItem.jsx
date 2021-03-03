@@ -34,6 +34,9 @@ export default ({ searchText, searchValues, searchModal }) => {
         className="icon-Close"
         onClick={() => {
           searchValues.deleteItem(searchText);
+          if (searchValues.array.length === 1) {
+            searchModal.closeModal();
+          }
         }}
       />
     </SearchItems>

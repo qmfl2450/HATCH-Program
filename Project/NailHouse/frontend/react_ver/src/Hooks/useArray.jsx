@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import useLocalStorage from "./useLocalStorage";
 
 export default (limit) => {
-  const [array, setArray] = useState([]);
+  const [array, setArray] = useLocalStorage("array", []);
 
   const addItem = (item) => {
     if (array.length === limit) {

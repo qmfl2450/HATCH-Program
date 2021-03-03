@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ImgLogoImage from "../../assets/img/logo/logoImage.webp";
 import ImgLogo from "../../assets/img/logo/logo.svg";
 import Button from "../../Component/Button";
+import useInput from "../../Hooks/useInput";
 // import "./styles.css";
 
 const Container = styled.div`
@@ -75,15 +76,28 @@ const LoginSpan = styled.span`
 `;
 
 export default () => {
+  const IdInput = useInput();
+  const pwInput = useInput();
+
   return (
     <Container>
       <Logo>
         <LogoImage src={ImgLogoImage} />
         <LogoName src={ImgLogo} />
       </Logo>
-      <LoginForm>
-        <LoginInput placeholder="이메일" />
-        <LoginInput placeholder="비밀번호" />
+      <LoginForm action="">
+        <LoginInput
+          type="text"
+          placeholder="아이디"
+          value={IdInput.value}
+          onChange={IdInput.onChange}
+        />
+        <LoginInput
+          type="password"
+          placeholder="비밀번호"
+          value={pwInput.value}
+          onChange={pwInput.onChange}
+        />
       </LoginForm>
       <Button
         fill={true}

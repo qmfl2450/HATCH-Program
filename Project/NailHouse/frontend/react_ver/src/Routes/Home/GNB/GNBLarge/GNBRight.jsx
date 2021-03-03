@@ -20,11 +20,17 @@ export const UserIcon = styled.i`
   margin-right: ${(props) => (props.margin ? "12px" : 0)};
   font-size: 24px;
   color: #858896;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const UserProfile = styled.img`
   margin-right: 32px;
   width: 32px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Chevron = styled.i`
