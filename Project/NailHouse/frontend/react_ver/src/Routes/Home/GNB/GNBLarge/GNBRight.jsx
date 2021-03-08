@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import ImageUser from "../../../../assets/img/Home/icon-default-user.svg";
+
+import LoginContext from "../../../../Context/LoginContext";
+
 import Button from "../../../../Component/Button";
 import SearchBar from "../SearchBar/SearchBar";
+
+import ImageUser from "../../../../assets/img/Home/icon-default-user.svg";
 import "../../../../assets/fonts/style.css";
 
 const Right = styled.div`
@@ -56,6 +60,7 @@ export const GNBRightTablet = () => {
 };
 
 export const GNBRightPC = () => {
+  const { login, onLogout } = useContext(LoginContext);
   return (
     <Right>
       <SearchBar />
@@ -63,7 +68,14 @@ export const GNBRightPC = () => {
         <UserIcon className="icon-Bookmark" margin />
         <UserIcon className="icon-Bell" margin />
         <UserIcon className="icon-Cart" margin />
-        <UserProfile src={ImageUser} />
+        <UserProfile
+          src={ImageUser}
+          onClick={() => {
+            if (login) {
+              onLogout();
+            }
+          }}
+        />
       </UserIcons>
       <Button fill width="88px" height="40px" size="16px">
         글쓰기

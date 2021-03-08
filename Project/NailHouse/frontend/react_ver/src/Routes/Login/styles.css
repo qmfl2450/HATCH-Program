@@ -4,5 +4,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center; */
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
+  position: relative;
 }

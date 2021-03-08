@@ -14,6 +14,11 @@ const Button = styled.button`
   letter-spacing: -0.01em;
   &:hover {
     cursor: pointer;
+    background-color: ${(props) => (props.fill ? "#3186C4" : "#fff")};
+  }
+  &:active {
+    background-color: ${(props) => (props.fill ? "#3DA8F5" : "#fff")};
+    opacity: 0.4;
   }
 `;
 
