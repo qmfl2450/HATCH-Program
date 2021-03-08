@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import LoginContext from "../../../../Context/LoginContext";
+import { LoginContext } from "../../../../Context/LoginContext";
 
 import Button from "../../../../Component/Button";
 import SearchBar from "../SearchBar/SearchBar";
 
 import ImageUser from "../../../../assets/img/Home/icon-default-user.svg";
 import "../../../../assets/fonts/style.css";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "../../../../Context/UserContext";
 
 const Right = styled.div`
   display: flex;
@@ -60,7 +62,10 @@ export const GNBRightTablet = () => {
 };
 
 export const GNBRightPC = () => {
+  const history = useHistory();
   const { login, onLogout } = useContext(LoginContext);
+  const { User } = useContext(UserContext);
+
   return (
     <Right>
       <SearchBar />
@@ -73,6 +78,8 @@ export const GNBRightPC = () => {
           onClick={() => {
             if (login) {
               onLogout();
+              User("");
+              history.push("/users/signin");
             }
           }}
         />
