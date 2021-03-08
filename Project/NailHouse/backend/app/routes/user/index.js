@@ -75,6 +75,10 @@ router.post("/", async (req, res) => {
 router.post("/signin", (req, res) => {
   // 로그인 API 구현
   const { id, pw } = req.body;
+  if (!id || !pw) {
+    res.status(404).json({});
+    return;
+  }
   return service.userFindById(id).then((user) => {
     if (!user) {
       res.status(404).json({});
