@@ -8,7 +8,7 @@ const router = Router();
 const connectStatus = {};
 
 // 유저 목록을 조회 API
-router.get("/api", (req, res) => {
+router.get("/", (req, res) => {
   const page = req.query.page === undefined ? 1 : +req.query.page;
   const pageSize = req.query.pageSize === undefined ? 2 : +req.query.pageSize;
   const name = req.query.name;
@@ -72,7 +72,7 @@ router.post("/", async (req, res) => {
 });
 
 // 유저 로그인 API
-router.post("/api/signin", (req, res) => {
+router.post("/signin", (req, res) => {
   // 로그인 API 구현
   const { id, pw } = req.body;
   return service.userFindById(id).then((user) => {
