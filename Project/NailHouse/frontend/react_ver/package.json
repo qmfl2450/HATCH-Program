@@ -5,7 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.1",
+    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "http-proxy-middleware": "^1.0.6",
     "icomoon-react": "^2.0.19",
@@ -16,6 +16,7 @@
     "react-icons": "^4.2.0",
     "react-modal": "^3.12.1",
     "react-responsive": "^8.2.0",
+    "react-router": "^3.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "styled-components": "^5.2.1",

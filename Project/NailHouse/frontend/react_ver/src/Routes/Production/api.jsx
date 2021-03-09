@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router";
-import useFetch from "../../../../Hooks/useFetch";
+import { useParams } from "react-router-dom";
 
 export default () => {
   const { id } = useParams();
@@ -11,11 +10,7 @@ export default () => {
     });
   };
 
-  try {
-    const production = ProductionAPI(id);
-  } catch (e) {
-    console.log(e);
-  }
+  const [result, setResult] = useState({});
 
   return <></>;
 };

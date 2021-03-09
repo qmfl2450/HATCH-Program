@@ -1,6 +1,7 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import ProductionPC from "./ProductionPC/index.jsx";
+import Home from "../Home/Home.jsx";
+import ProductionPC from "./ProductionPC/ProductionPC.jsx";
 
 export default () => {
   const isPC = useMediaQuery({
@@ -15,6 +16,7 @@ export default () => {
 
   return (
     <>
+      <Home />
       {isPC && <ProductionPC />}
       {/* {isTablet && <GNBTablet />}
       {isMobile && <GNBMobile />} */}
