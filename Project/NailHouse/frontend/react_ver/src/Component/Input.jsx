@@ -6,13 +6,12 @@ import useInput from "../Hooks/useInput";
 const InputForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
 `;
 
 const Input = styled.input`
   display: flex;
   align-items: center;
-  border: solid 1px #dbdbdb;
+  border: solid 1px ${(props) => (props.empty ? "#f77" : "#dbdbdb")};
   border-radius: 4px;
   padding: 0 15px;
   width: 360px;
@@ -24,19 +23,27 @@ const Input = styled.input`
   }
   &:hover {
     background-color: #fafafa;
-    border: solid 1px #bdbdbd;
+    border: solid 1px ${(props) => (props.empty ? "f77" : "#bdbdbd")};
+  }
+  &:focus {
+    box-shadow: 0 0 0
+      ${(props) =>
+        props.empty
+          ? "2px rgba(255, 119, 119, 0.5)"
+          : "3px rgba(130, 224, 250, 0.5)"};
   }
 `;
 
-export default ({ placeholder, type }) => {
-  const InputValue = useInput();
+export default ({ placeholder, type, empty, onBlur, value, onChange }) => {
   return (
     <InputForm>
       <Input
         type={type}
-        value={InputValue.value}
-        onChange={InputValue.onChange}
         placeholder={placeholder}
+        onBlur={onBlur}
+        empty={empty}
+        value={value}
+        onChange={onChange}
       />
     </InputForm>
   );

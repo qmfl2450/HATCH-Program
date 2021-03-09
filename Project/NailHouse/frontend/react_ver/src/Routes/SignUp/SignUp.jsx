@@ -1,15 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 import Input from "../../Component/Input";
 import Checkbox from "../../Component/Checkbox";
+import Button from "../../Component/Button";
+import Alert from "../../Component/Alert";
+import AlertMessage from "./AlertMessage";
+
+import { LoginContext } from "../../Context/LoginContext";
+import useEmpty from "../../Hooks/useEmpty";
+import useInput from "../../Hooks/useInput";
 
 import ImgLogoImage from "../../assets/img/logo/logoImage.webp";
 import ImgLogo from "../../assets/img/logo/logo.svg";
-import Button from "../../Component/Button";
-import { LoginContext } from "../../Context/LoginContext";
-import Alert from "../../Component/Alert";
+import useSubmit from "../../Hooks/useSubmit";
 
 const Container = styled.div`
   position: absolute;
@@ -55,7 +61,7 @@ const Strong = styled.strong`
   margin-bottom: ${(props) => (props.big ? "0" : "15px")};
   font-size: ${(props) => (props.big ? "20px" : "15px")};
   font-weight: 700;
-  color: #292929;
+  color: ${(props) => (props.empty ? "#f77" : "#292929")};
 `;
 
 const Span = styled.span`
@@ -120,6 +126,56 @@ export default () => {
   const { login } = useContext(LoginContext);
   const history = useHistory();
 
+  const idEmpty = useEmpty();
+  const pwEmpty = useEmpty();
+  const pwreEmpty = useEmpty();
+  const nicknameEmpty = useEmpty();
+
+  const idValue = useInput();
+  const pwValue = useInput();
+  const pwreValue = useInput();
+  const nicknameValue = useInput();
+
+  const { submit, onSubmit, notSubmit } = useSubmit();
+
+  useEffect(() => {
+    if (
+      idEmpty.empty === false &&
+      pwEmpty.empty === false &&
+      pwreEmpty.empty === false &&
+      nicknameEmpty.empty === false &&
+      pwValue.value === pwreValue
+    ) {
+      onSubmit();
+    }
+  }, [submit]);
+
+  useEffect(() => {
+    if (idValue.value.length !== 0) {
+      idEmpty.isFilled();
+    }
+    if (pwValue.value.length !== 0) {
+      pwEmpty.isFilled();
+    }
+    if (pwreValue.value.length !== 0) {
+      pwreEmpty.isFilled();
+    }
+    if (nicknameValue.value.length !== 0) {
+      nicknameEmpty.isFilled();
+    }
+  });
+
+  const Signin = (id, pw, nickname) => {
+    const data = {
+      id,
+      pw,
+      nickname,
+    };
+    axios.post("http://localhost:3001/user", data).catch((e) => {
+      console.log(e);
+    });
+  };
+
   return (
     <>
       {login ? (
@@ -135,22 +191,72 @@ export default () => {
               <Strong big>회원가입</Strong>
             </Border>
             <InputDiv>
-              <Strong>아이디</Strong>
-              <Input placeholder="아이디" type="text" />
+              <Strong empty={idEmpty.empty}>아이디</Strong>
+              <Input
+                placeholder="아이디"
+                type="text"
+                value={idValue.value}
+                onChange={idValue.onChange}
+                onBlur={() => {
+                  if (idValue.value.length === 0) {
+                    idEmpty.isEmpty();
+                  }
+                }}
+                empty={idEmpty.empty}
+              />
+              {idEmpty.empty && <AlertMessage />}
             </InputDiv>
             <InputDiv>
-              <Strong>비밀번호</Strong>
-              <Span>8자리 이상 입력해주세요.</Span>
-              <Input placeholder="비밀번호" type="password" />
+              <Strong empty={pwEmpty.empty}>비밀번호</Strong>
+              <Input
+                placeholder="비밀번호"
+                type="password"
+                value={pwValue.value}
+                onChange={pwValue.onChange}
+                onBlur={() => {
+                  if (pwValue.value.length === 0) {
+                    pwEmpty.isEmpty();
+                  }
+                }}
+                empty={pwEmpty.empty}
+              />
+              {pwEmpty.empty && <AlertMessage />}
             </InputDiv>
             <InputDiv>
-              <Strong>비밀번호 확인</Strong>
-              <Input placeholder="비밀번호 확인" type="password" />
+              <Strong empty={pwreEmpty.empty}>비밀번호 확인</Strong>
+              <Input
+                placeholder="비밀번호 확인"
+                type="password"
+                value={pwreValue.value}
+                onChange={pwreValue.onChange}
+                onBlur={() => {
+                  if (pwreValue.value.length === 0) {
+                    pwreEmpty.isEmpty();
+                  }
+                }}
+                empty={pwreEmpty.empty}
+              />
+              {(pwreEmpty.empty ||
+                (!pwreEmpty.empty && pwValue.value !== pwreValue.value)) && (
+                <AlertMessage message="확인을 위해 비밀번호를 한 번 더 입력해주세요." />
+              )}
             </InputDiv>
             <InputDiv>
-              <Strong>별명</Strong>
-              <Span>다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</Span>
-              <Input placeholder="별명 (2~15자)" type="text" />
+              <Strong empty={nicknameEmpty.empty}>별명</Strong>
+              <Span>다른 유저와 겹치지 않는 별명을 입력해주세요.</Span>
+              <Input
+                placeholder="별명"
+                type="text"
+                value={nicknameValue.value}
+                onChange={nicknameValue.onChange}
+                onBlur={() => {
+                  if (nicknameValue.value.length === 0) {
+                    nicknameEmpty.isEmpty();
+                  }
+                }}
+                empty={nicknameEmpty.empty}
+              />
+              {nicknameEmpty.empty && <AlertMessage />}
             </InputDiv>
             <Agreement>
               <Strong>약관 동의</Strong>
@@ -194,6 +300,17 @@ export default () => {
               height="77px"
               size="18px"
               margin="0 0 30px 0"
+              onClick={() => {
+                if (
+                  idValue.value &&
+                  pwValue.value &&
+                  nicknameValue.value &&
+                  pwValue.value === pwreValue.value
+                ) {
+                  console.log("suc");
+                  Signin(idValue.value, pwValue.value, nicknameValue.value);
+                }
+              }}
             >
               회원가입 완료
             </Button>
