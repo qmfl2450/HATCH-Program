@@ -9,7 +9,8 @@ export default (limit) => {
       limitArray.shift();
       setArray([...limitArray]);
     }
-    setArray([...array, item]);
+    if (array.find((v) => v === item) !== undefined) return;
+    setArray([item, ...array]);
   };
 
   const deleteItem = (item) => {

@@ -4,10 +4,10 @@ import useLocalStorage from "../Hooks/useLocalStorage";
 export const UserContext = React.createContext();
 
 const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useLocalStorage("user", "");
+  const [user, setUser] = useLocalStorage("user", {});
 
-  const User = (id) => {
-    setUser(id);
+  const User = (id, token, expired) => {
+    setUser({ id, token, expired });
   };
 
   return (

@@ -1,7 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-
-import useInput from "../Hooks/useInput";
 
 const InputForm = styled.form`
   display: flex;
@@ -11,7 +9,7 @@ const InputForm = styled.form`
 const Input = styled.input`
   display: flex;
   align-items: center;
-  border: solid 1px ${(props) => (props.empty ? "#f77" : "#dbdbdb")};
+  border: solid 1px ${(props) => (props.alert ? "#f77" : "#dbdbdb")};
   border-radius: 4px;
   padding: 0 15px;
   width: 360px;
@@ -23,27 +21,36 @@ const Input = styled.input`
   }
   &:hover {
     background-color: #fafafa;
-    border: solid 1px ${(props) => (props.empty ? "f77" : "#bdbdbd")};
+    border: solid 1px ${(props) => (props.alert ? "#f77" : "#bdbdbd")};
   }
   &:focus {
     box-shadow: 0 0 0
       ${(props) =>
-        props.empty
+        props.alert
           ? "2px rgba(255, 119, 119, 0.5)"
           : "3px rgba(130, 224, 250, 0.5)"};
   }
 `;
 
-export default ({ placeholder, type, empty, onBlur, value, onChange }) => {
+export default ({
+  placeholder,
+  type,
+  value,
+  onChange,
+  focus,
+  onBlur,
+  alert,
+}) => {
   return (
     <InputForm>
       <Input
         type={type}
         placeholder={placeholder}
-        onBlur={onBlur}
-        empty={empty}
         value={value}
         onChange={onChange}
+        focus={focus}
+        onBlur={onBlur}
+        alert={alert}
       />
     </InputForm>
   );

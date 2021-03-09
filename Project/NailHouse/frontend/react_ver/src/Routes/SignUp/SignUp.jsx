@@ -10,12 +10,13 @@ import Alert from "../../Component/Alert";
 import AlertMessage from "./AlertMessage";
 
 import { LoginContext } from "../../Context/LoginContext";
-import useEmpty from "../../Hooks/useEmpty";
 import useInput from "../../Hooks/useInput";
+import useFocus from "../../Hooks/useFocus";
+import useError from "../../Hooks/useError";
 
 import ImgLogoImage from "../../assets/img/logo/logoImage.webp";
 import ImgLogo from "../../assets/img/logo/logo.svg";
-import useSubmit from "../../Hooks/useSubmit";
+import useAlert from "../../Hooks/useAlert";
 
 const Container = styled.div`
   position: absolute;
@@ -61,7 +62,7 @@ const Strong = styled.strong`
   margin-bottom: ${(props) => (props.big ? "0" : "15px")};
   font-size: ${(props) => (props.big ? "20px" : "15px")};
   font-weight: 700;
-  color: ${(props) => (props.empty ? "#f77" : "#292929")};
+  color: ${(props) => (props.alert ? "#f77" : "#292929")};
 `;
 
 const Span = styled.span`
@@ -125,56 +126,94 @@ const Login = styled.a`
 export default () => {
   const { login } = useContext(LoginContext);
   const history = useHistory();
-
-  const idEmpty = useEmpty();
-  const pwEmpty = useEmpty();
-  const pwreEmpty = useEmpty();
-  const nicknameEmpty = useEmpty();
+  const { error, throwError, returnTrue } = useError();
 
   const idValue = useInput();
   const pwValue = useInput();
-  const pwreValue = useInput();
+  const pwReValue = useInput();
   const nicknameValue = useInput();
 
-  const { submit, onSubmit, notSubmit } = useSubmit();
+  const idFocus = useFocus();
+  const pwFocus = useFocus();
+  const pwReFocus = useFocus();
+  const nicknameFocus = useFocus();
 
-  useEffect(() => {
-    if (
-      idEmpty.empty === false &&
-      pwEmpty.empty === false &&
-      pwreEmpty.empty === false &&
-      nicknameEmpty.empty === false &&
-      pwValue.value === pwreValue
-    ) {
-      onSubmit();
-    }
-  }, [submit]);
+  const idAlert = useAlert();
+  const pwAlert = useAlert();
+  const pwReAlert = useAlert();
+  const nicknameAlert = useAlert();
 
-  useEffect(() => {
-    if (idValue.value.length !== 0) {
-      idEmpty.isFilled();
-    }
-    if (pwValue.value.length !== 0) {
-      pwEmpty.isFilled();
-    }
-    if (pwreValue.value.length !== 0) {
-      pwreEmpty.isFilled();
-    }
-    if (nicknameValue.value.length !== 0) {
-      nicknameEmpty.isFilled();
-    }
-  });
-
-  const Signin = (id, pw, nickname) => {
+  const Signin = (id, pw, nickname, sms_agreement) => {
     const data = {
       id,
       pw,
       nickname,
+      sms_agreement,
     };
-    axios.post("http://localhost:3001/user", data).catch((e) => {
-      console.log(e);
-    });
+    axios
+      .post("http://localhost:3001/user", data)
+      .then(() => {
+        history.push("/users/signin");
+      })
+      .catch((e) => {
+        console.log(e);
+        throwError();
+        if (idValue.value.length === 0) {
+          idFocus.onBlur();
+        }
+        if (pwValue.value.length === 0) {
+          pwFocus.onBlur();
+        }
+        if (pwReValue.value.length === 0) {
+          pwReFocus.onBlur();
+        }
+        if (nicknameValue.value.length === 0) {
+          nicknameFocus.onBlur();
+        }
+      });
   };
+
+  useEffect(() => {
+    if (idFocus.focus === false && idValue.value.length === 0) {
+      idAlert.throwAlert();
+    } else {
+      idAlert.resetAlert();
+    }
+
+    if (
+      (pwFocus.focus === false && pwValue.value.length === 0) ||
+      (pwFocus.focus === false &&
+        pwValue.value.length > 0 &&
+        pwValue.value.length < 8)
+    ) {
+      pwAlert.throwAlert();
+    } else {
+      pwAlert.resetAlert();
+    }
+
+    if (
+      (pwReFocus.focus === false && pwReValue.value.length === 0) ||
+      (pwReFocus.focus === false &&
+        pwReValue.value.length > 0 &&
+        pwReValue.value !== pwValue.value)
+    ) {
+      pwReAlert.throwAlert();
+    } else {
+      pwReAlert.resetAlert();
+    }
+
+    if (
+      (nicknameFocus.focus === false && nicknameValue.value.length === 0) ||
+      (nicknameFocus.focus === false &&
+        nicknameValue.value.length < 2 &&
+        nicknameValue.value.length > 0) ||
+      (nicknameFocus.focus === false && nicknameValue.value.length > 15)
+    ) {
+      nicknameAlert.throwAlert();
+    } else {
+      nicknameAlert.resetAlert();
+    }
+  });
 
   return (
     <>
@@ -191,78 +230,94 @@ export default () => {
               <Strong big>회원가입</Strong>
             </Border>
             <InputDiv>
-              <Strong empty={idEmpty.empty}>아이디</Strong>
+              <Strong alert={idAlert.alert}>아이디</Strong>
               <Input
                 placeholder="아이디"
                 type="text"
                 value={idValue.value}
                 onChange={idValue.onChange}
                 onBlur={() => {
-                  if (idValue.value.length === 0) {
-                    idEmpty.isEmpty();
-                  }
+                  idFocus.onBlur();
                 }}
-                empty={idEmpty.empty}
+                alert={idAlert.alert}
               />
-              {idEmpty.empty && <AlertMessage />}
+              {idFocus.focus === false && idValue.value.length === 0 && (
+                <AlertMessage />
+              )}
             </InputDiv>
             <InputDiv>
-              <Strong empty={pwEmpty.empty}>비밀번호</Strong>
+              <Strong alert={pwAlert.alert}>비밀번호</Strong>
+              <Span>8자 이상 입력해주세요.</Span>
               <Input
                 placeholder="비밀번호"
                 type="password"
                 value={pwValue.value}
                 onChange={pwValue.onChange}
                 onBlur={() => {
-                  if (pwValue.value.length === 0) {
-                    pwEmpty.isEmpty();
-                  }
+                  pwFocus.onBlur();
                 }}
-                empty={pwEmpty.empty}
+                alert={pwAlert.alert}
               />
-              {pwEmpty.empty && <AlertMessage />}
+              {pwFocus.focus === false && pwValue.value.length === 0 && (
+                <AlertMessage />
+              )}
+              {pwFocus.focus === false &&
+                pwValue.value.length > 0 &&
+                pwValue.value.length < 8 && (
+                  <AlertMessage message="8자 이상 입력해주세요." />
+                )}
             </InputDiv>
             <InputDiv>
-              <Strong empty={pwreEmpty.empty}>비밀번호 확인</Strong>
+              <Strong alert={pwReAlert.alert}>비밀번호 확인</Strong>
               <Input
                 placeholder="비밀번호 확인"
                 type="password"
-                value={pwreValue.value}
-                onChange={pwreValue.onChange}
+                value={pwReValue.value}
+                onChange={pwReValue.onChange}
                 onBlur={() => {
-                  if (pwreValue.value.length === 0) {
-                    pwreEmpty.isEmpty();
-                  }
+                  pwReFocus.onBlur();
                 }}
-                empty={pwreEmpty.empty}
+                alert={pwReAlert.alert}
               />
-              {(pwreEmpty.empty ||
-                (!pwreEmpty.empty && pwValue.value !== pwreValue.value)) && (
+              {pwReFocus.focus === false && pwReValue.value.length === 0 && (
                 <AlertMessage message="확인을 위해 비밀번호를 한 번 더 입력해주세요." />
               )}
+              {pwReFocus.focus === false &&
+                pwReValue.value.length > 0 &&
+                pwReValue.value !== pwValue.value && (
+                  <AlertMessage message="비밀번호가 일치하지 않습니다." />
+                )}
             </InputDiv>
             <InputDiv>
-              <Strong empty={nicknameEmpty.empty}>별명</Strong>
-              <Span>다른 유저와 겹치지 않는 별명을 입력해주세요.</Span>
+              <Strong alert={nicknameAlert.alert}>별명</Strong>
+              <Span>다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</Span>
               <Input
                 placeholder="별명"
                 type="text"
                 value={nicknameValue.value}
                 onChange={nicknameValue.onChange}
                 onBlur={() => {
-                  if (nicknameValue.value.length === 0) {
-                    nicknameEmpty.isEmpty();
-                  }
+                  nicknameFocus.onBlur();
                 }}
-                empty={nicknameEmpty.empty}
+                alert={nicknameAlert.alert}
               />
-              {nicknameEmpty.empty && <AlertMessage />}
+              {nicknameFocus.focus === false &&
+                nicknameValue.value.length === 0 && <AlertMessage />}
+              {nicknameFocus.focus === false &&
+                nicknameValue.value.length < 2 &&
+                nicknameValue.value.length > 0 && (
+                  <AlertMessage message="2자 이상 입력해주세요." />
+                )}
+              {nicknameFocus.focus === false &&
+                nicknameValue.value.length > 15 && (
+                  <AlertMessage message="15자 이하로 입력해주세요." />
+                )}
             </InputDiv>
             <Agreement>
               <Strong>약관 동의</Strong>
               <AgreementForm>
                 <CheckList all>
-                  <Checkbox name="agreement" />
+                  <Checkbox name="agreement" Checked={true} />
                   <CheckText all>전체동의</CheckText>
                 </CheckList>
                 <CheckList>
@@ -302,12 +357,11 @@ export default () => {
               margin="0 0 30px 0"
               onClick={() => {
                 if (
-                  idValue.value &&
-                  pwValue.value &&
-                  nicknameValue.value &&
-                  pwValue.value === pwreValue.value
+                  !idAlert.alert &&
+                  !pwAlert.alert &&
+                  !pwReAlert.alert &&
+                  !nicknameAlert.alert
                 ) {
-                  console.log("suc");
                   Signin(idValue.value, pwValue.value, nicknameValue.value);
                 }
               }}

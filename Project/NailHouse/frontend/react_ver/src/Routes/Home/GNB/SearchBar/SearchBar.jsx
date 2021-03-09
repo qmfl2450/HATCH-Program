@@ -62,6 +62,8 @@ export default () => {
           }
         }}
         // onBlur={closeModal}
+        // action={`localhost:3000/${search.value}`}
+        // method="post"
       >
         <SearchIcon className="icon-Search" />
         <SearchInput

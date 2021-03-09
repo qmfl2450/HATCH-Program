@@ -5,17 +5,19 @@ import { LoginContext } from "../../Context/LoginContext";
 
 import GNB from "./GNB/GNB";
 import CategoryMenu from "./CategoryMenu/CategoryMenu";
-import Alert from "../../Component/Alert";
+import Production from "./Production/Production";
 
 export default () => {
-  const { user } = useContext(UserContext);
-  const { login } = useContext(LoginContext);
+  const {
+    user: { id },
+  } = useContext(UserContext);
+  console.log(id);
 
   return (
     <>
       <GNB />
       <CategoryMenu />
-      <span>{user}</span>
+      <Production />
     </>
   );
 };

@@ -115,11 +115,12 @@ export default () => {
     axios
       .post("http://localhost:3001/user/signin", data)
       .then((response) => {
-        const { token } = response.data;
-        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        const { token, expired } = response.data;
+        axios.defaults.headers.common["Authorization"] = token;
+        User(id, token, expired);
+      })
+      .then(() => {
         onLogin();
-        User(id);
-        console.log(response);
       })
       .catch((e) => {
         console.log(e);
