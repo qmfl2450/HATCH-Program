@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
 
 // 유저 생성 API
 router.post("/", async (req, res) => {
-  const { id, pw, nickname } = req.body;
+  const { id, pw, nickname, sms_agreement } = req.body;
   if (!pw) {
     res.status(400).json({ message: '"pw"가 입력되지 않았습니다.' });
     return;
@@ -65,6 +65,7 @@ router.post("/", async (req, res) => {
     pw: getHash(pw, salt),
     id,
     nickname,
+    sms_agreement,
     enabled: 1,
     created_at: new Date(),
     updated_at: new Date(),
