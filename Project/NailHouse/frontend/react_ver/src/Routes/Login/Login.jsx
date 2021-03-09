@@ -114,8 +114,8 @@ export default () => {
     };
     axios
       .post("http://localhost:3001/user/signin", data)
-      .then((response) => {
-        const { token, expired } = response.data;
+      .then((res) => {
+        const { token, expired } = res.data;
         axios.defaults.headers.common["Authorization"] = token;
         User(id, token, expired);
       })
