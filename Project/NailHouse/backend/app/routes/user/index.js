@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
 
 // 유저 생성 API
 router.post("/", async (req, res) => {
-  const { pw, id, nickname } = req.body;
+  const { id, pw, nickname } = req.body;
   if (!pw) {
     res.status(400).json({ message: '"pw"가 입력되지 않았습니다.' });
     return;
@@ -47,6 +47,17 @@ router.post("/", async (req, res) => {
     res.status(400).json({ message: '"nickname"가 입력되지 않았습니다.' });
     return;
   }
+
+  // try {
+  //   user = await service.userFindById(id);
+  //   if (user) {
+  //     res.status(400).json({ message: "이미 존재하는 id입니다." });
+  //     return;
+  //   }
+  // } catch (e) {
+  //   res.status(500).json({});
+  //   return;
+  // }
 
   const salt = getSalt();
   const user = {
