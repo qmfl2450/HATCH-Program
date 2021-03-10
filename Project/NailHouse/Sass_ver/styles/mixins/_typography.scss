@@ -1,0 +1,38 @@
+@mixin font-xsmall($color: $primary) {
+    font-size: $font-size-xsmall;
+    line-height: $line-height-xsmall;
+
+    color: $color;
+}
+
+@mixin font-small($color: $primary) {
+    font-size: $font-size-small;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-base;
+
+    color: $color;
+}
+
+@mixin font-base($color: $primary) {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-base;
+
+    color: $color;
+}
+
+@mixin font-large($color: $primary) {
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+    letter-spacing: $letter-spacing-large;
+
+    color: $color;
+}
+
+@mixin font-xlarge($color: $primary) {
+    font-size: $font-size-xlarge;
+    line-height: $line-height-xlarge;
+    letter-spacing: $letter-spacing-large;
+
+    color: $color;
+}
