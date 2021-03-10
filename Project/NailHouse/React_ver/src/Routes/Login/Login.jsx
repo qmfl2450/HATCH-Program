@@ -29,7 +29,7 @@ const Container = styled.div`
   background-color: #fafafa;
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,7 +132,7 @@ export default () => {
     <>
       {!login && (
         <Container>
-          <Logo>
+          <Logo to="/">
             <LogoImage src={ImgLogoImage} />
             <LogoName src={ImgLogo} />
           </Logo>

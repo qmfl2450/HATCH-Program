@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import Input from "../../Component/Input";
@@ -27,7 +27,7 @@ const Container = styled.div`
   padding: 40px 0;
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
   display: flex;
 `;
 
@@ -221,7 +221,7 @@ export default () => {
         history.push("/") && <Alert />
       ) : (
         <Container>
-          <Logo>
+          <Logo to="/">
             <LogoImage src={ImgLogoImage} />
             <LogoName src={ImgLogo} />
           </Logo>

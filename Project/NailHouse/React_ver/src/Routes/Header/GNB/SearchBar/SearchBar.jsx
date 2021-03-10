@@ -15,16 +15,16 @@ const SearchBar = styled.div`
 
 const SearchForm = styled.form`
   position: relative;
-  margin-right: 32px;
+  margin-right: 24px;
   border: 1px solid #e0e2e7;
   border-radius: 4px;
-  width: ${(props) => (props.big ? "100%" : "266px")};
   height: 40px;
 `;
 
 const SearchInput = styled.input`
   padding: 8px 40px;
   width: 100%;
+  max-width: ${(props) => (props.big ? "100%" : "266px")};
   height: 100%;
   &:focus {
     background-color: #f7f8fa;

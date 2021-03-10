@@ -34,6 +34,8 @@ const globalStyles = createGlobalStyle`
             color: inherit;
         }
     }
+
+    /* 효과가 서서히 나타나게 함 */
     .fade-in {
         animation: fadein 0.5s;
         -moz-animation: fadein 0.5s; /* Firefox */
@@ -72,6 +74,8 @@ const globalStyles = createGlobalStyle`
             opacity: 1;
         }
     }
+
+    /* 효과가 서서히 사라지게 함 */
     .fade-out {
         animation: fadeout 0.5s;
         -moz-animation: fadeout 0.5s; /* Firefox */

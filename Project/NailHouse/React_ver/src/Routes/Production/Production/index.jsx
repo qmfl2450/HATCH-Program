@@ -1,5 +1,3 @@
-import React from "react";
+import ProductionContainer from "./ProductionContainer";
 
-export default () => {
-  return <></>;
-};
+export default ProductionContainer;

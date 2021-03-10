@@ -19,7 +19,6 @@ const Container = styled.div`
   padding: 0 40px;
   height: 100%;
   width: 100%;
-  max-width: 1120px;
 `;
 
 export default () => {

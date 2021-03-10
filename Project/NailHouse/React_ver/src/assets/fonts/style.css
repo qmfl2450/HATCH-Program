@@ -1,7 +1,7 @@
 @font-face {
   font-family: "icomoon";
-  src: url("./icomoon.eot?mr70wr");
-  src: url("./icomoon.eot?mr70wr#iefix") format("embedded-opentype"),
+  src: url("./icomoon.eot");
+  src: url("./icomoon.eot") format("embedded-opentype"),
     url("./icomoon.ttf") format("truetype"),
     url("./icomoon.woff") format("woff"), url("./icomoon.svg") format("svg");
   font-weight: normal;
@@ -24,6 +24,12 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-menu:before {
+  content: "\e90e";
+}
+.icon-chevron-right:before {
+  content: "\e90d";
+}
 .icon-uniE900:before {
   content: "\e900";
 }
@@ -63,7 +69,4 @@ i {
 }
 .icon-Star:before {
   content: "\e90b";
-}
-.icon-menu:before {
-  content: "\e9bd";
 }

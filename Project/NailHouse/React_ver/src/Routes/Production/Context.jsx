@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import useLocalStorage from "../../Hooks/useLocalStorage";
 
 export const ProductionContext = React.createContext();
 
 const ProductionContextProvider = ({ children }) => {
-  const [result, setResult] = useLocalStorage("result", {});
+  const [result, setResult] = useState({
+    result: null,
+    error: null,
+    loading: true,
+  });
 
   return (
-    <ProductionContext.Provider value={{}}>
+    <ProductionContext.Provider value={{ result, setResult }}>
       {children}
     </ProductionContext.Provider>
   );

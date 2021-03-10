@@ -16,10 +16,10 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 60px;
   height: 100%;
   width: 100%;
-  max-width: 1120px;
+  max-width: 1240px;
 `;
 
 export default () => {

@@ -7,10 +7,12 @@ import ImageLogo from "../../../../assets/img/logo/logo.svg";
 const Left = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 10px;
+  min-width: 392px;
 `;
 
 const LogoLink = styled(Link)`
-  margin-right: 45px;
+  margin-right: 32px;
 `;
 
 const Logo = styled.img`
@@ -20,7 +22,7 @@ const Logo = styled.img`
 const Nav = styled.nav``;
 
 const NavItem = styled(Link)`
-  margin-right: 22px;
+  margin-right: 24px;
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
