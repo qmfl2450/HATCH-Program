@@ -35,51 +35,51 @@ const NavItem = styled(Link)`
 `;
 
 export default () => {
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
-  const [current, setCurrent] = useState([false, false, false]);
-  const onCurrent = (index) => {
-    const findCurrent = current.map((v, i) => {
-      if (i === index) {
-        v = true;
-      }
-      return v;
-    });
-    setCurrent([...findCurrent]);
-  };
-  const offCurrent = (index) => {
-    const findCurrent = current.map((v, i) => {
-      if (i === index) {
-        v = false;
-      }
-      return v;
-    });
-    setCurrent([...findCurrent]);
-  };
+  // const [current, setCurrent] = useState([false, false, false]);
+  // const onCurrent = (index) => {
+  //   const findCurrent = current.map((v, i) => {
+  //     if (i === index) {
+  //       v = true;
+  //     }
+  //     return v;
+  //   });
+  //   setCurrent([...findCurrent]);
+  // };
+  // const offCurrent = (index) => {
+  //   const findCurrent = current.map((v, i) => {
+  //     if (i === index) {
+  //       v = false;
+  //     }
+  //     return v;
+  //   });
+  //   setCurrent([...findCurrent]);
+  // };
 
-  useEffect(() => {
-    if (pathname === "/") {
-      console.log(1);
-      onCurrent(0);
-      offCurrent(1);
-      offCurrent(2);
-      return;
-    }
-    if (pathname === "/store") {
-      console.log(2);
-      onCurrent(1);
-      offCurrent(0);
-      offCurrent(2);
-      return;
-    }
-    if (pathname === "/experts") {
-      console.log(3);
-      onCurrent(2);
-      offCurrent(0);
-      offCurrent(1);
-      return;
-    }
-  }, [pathname]);
+  // useEffect(() => {
+  //   if (pathname === "/") {
+  //     console.log(1);
+  //     onCurrent(0);
+  //     offCurrent(1);
+  //     offCurrent(2);
+  //     return;
+  //   }
+  //   if (pathname === "/store") {
+  //     console.log(2);
+  //     onCurrent(1);
+  //     offCurrent(0);
+  //     offCurrent(2);
+  //     return;
+  //   }
+  //   if (pathname === "/experts") {
+  //     console.log(3);
+  //     onCurrent(2);
+  //     offCurrent(0);
+  //     offCurrent(1);
+  //     return;
+  //   }
+  // }, [pathname]);
 
   return (
     <Left>
@@ -87,15 +87,9 @@ export default () => {
         <Logo src={ImageLogo} />
       </LogoLink>
       <Nav>
-        <NavItem to="/" current={current[0]}>
-          커뮤니티
-        </NavItem>
-        <NavItem to="/store" current={current[1]}>
-          스토어
-        </NavItem>
-        <NavItem to="/experts" current={current[2]}>
-          인테리어시공
-        </NavItem>
+        <NavItem to="/">커뮤니티</NavItem>
+        <NavItem to="/store">스토어</NavItem>
+        <NavItem to="/experts">인테리어시공</NavItem>
       </Nav>
     </Left>
   );
