@@ -7,7 +7,7 @@ import Input from "../../Component/Input";
 import Checkbox from "../../Component/Checkbox";
 import Button from "../../Component/Button";
 import Alert from "../../Component/Alert";
-import AlertMessage from "./AlertMessage";
+import AlertMessage from "./Component/AlertMessage";
 
 import { LoginContext } from "../../Context/LoginContext";
 import useInput from "../../Hooks/useInput";

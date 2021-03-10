@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { UserContext } from "../../Context/UserContext";
 
-import GNB from "./GNB/GNB";
+import GNB from "./GNB/index";
 import CategoryMenu from "./CategoryMenu/CategoryMenu";
 
 export default () => {

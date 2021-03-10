@@ -7,8 +7,13 @@ const SearchItems = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 2px;
   padding: 10px 8px 10px 16px;
   height: 44px;
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f8fa;
+  }
 `;
 
 const SearchItem = styled.span`
@@ -26,7 +31,7 @@ const DeleteSearch = styled.i`
   }
 `;
 
-export default ({ searchText, searchValues, searchModal }) => {
+export default ({ searchText, searchValues }) => {
   return (
     <SearchItems>
       <SearchItem>{searchText}</SearchItem>
@@ -34,9 +39,6 @@ export default ({ searchText, searchValues, searchModal }) => {
         className="icon-Close"
         onClick={() => {
           searchValues.deleteItem(searchText);
-          if (searchValues.array.length === 1) {
-            searchModal.closeModal();
-          }
         }}
       />
     </SearchItems>

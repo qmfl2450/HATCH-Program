@@ -5,11 +5,17 @@ export default (limit) => {
 
   const addItem = (item) => {
     if (array.length === limit) {
-      const limitArray = array;
-      limitArray.shift();
-      setArray([...limitArray]);
+      if (array.find((v) => v === item) === undefined) {
+        const limitArray = array;
+        limitArray.shift();
+        setArray([...limitArray]);
+      }
     }
-    if (array.find((v) => v === item) !== undefined) return;
+    if (array.find((v) => v === item) !== undefined) {
+      const overlapArray = array.filter((v) => v !== item);
+      setArray([item, ...overlapArray]);
+      return;
+    }
     setArray([item, ...array]);
   };
 

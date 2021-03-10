@@ -1,9 +1,11 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import Home from "../Home/Home.jsx";
-import ProductionPC from "./ProductionPC/ProductionPC.jsx";
 
-export default () => {
+import GNBPC from "./GNBPC";
+import GNBTablet from "./GNBTablet";
+import GNBMobile from "./GNBMoblie";
+
+function GNB() {
   const isPC = useMediaQuery({
     query: "(min-width:1024px)",
   });
@@ -16,10 +18,11 @@ export default () => {
 
   return (
     <>
-      <Home />
-      {isPC && <ProductionPC />}
-      {/* {isTablet && <GNBTablet />}
-      {isMobile && <GNBMobile />} */}
+      {isPC && <GNBPC />}
+      {isTablet && <GNBTablet />}
+      {isMobile && <GNBMobile />}
     </>
   );
-};
+}
+
+export default GNB;

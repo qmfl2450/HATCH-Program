@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+
 import useInput from "../../../../Hooks/useInput";
-import useSubmit from "../../../../Hooks/useSubmit";
 import useModal from "../../../../Hooks/useModal";
 import useArray from "../../../../Hooks/useArray";
+
 import SearchModal from "./SearchModal";
+
 import "../../../../assets/fonts/style.css";
 
 const SearchBar = styled.div`
@@ -43,16 +45,20 @@ const SearchIcon = styled.i`
 
 export default () => {
   const search = useInput();
-  const { onSubmit } = useSubmit();
   const searchModal = useModal();
   const searchValues = useArray(5);
+
+  useEffect(() => {
+    if (searchValues.array.length === 0) {
+      searchModal.closeModal();
+    }
+  }, [searchValues]);
 
   return (
     <SearchBar>
       <SearchForm
         onKeyDown={(e) => {
           if (e.keyCode === 13 && search.value !== 0) {
-            onSubmit();
             searchValues.addItem(search.value);
           }
         }}
@@ -62,8 +68,6 @@ export default () => {
           }
         }}
         // onBlur={closeModal}
-        // action={`localhost:3000/${search.value}`}
-        // method="post"
       >
         <SearchIcon className="icon-Search" />
         <SearchInput

@@ -5,10 +5,10 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
-import Home from "../Routes/Home/Home";
-import Production from "../Routes/Production/Production";
-import Login from "../Routes/Login/Login";
-import SignUp from "../Routes/SignUp/SignUp";
+import Home from "../Routes/Home/index";
+import Production from "../Routes/Production/index";
+import Login from "../Routes/Login/index";
+import SignUp from "../Routes/SignUp/index";
 
 export default () => {
   return (

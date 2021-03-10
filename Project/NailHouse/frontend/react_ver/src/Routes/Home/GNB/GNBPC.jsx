@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import GNBLeft from "./GNBLeft";
-import { GNBRightTablet, GNBRightPC } from "./GNBRight";
+
+import GNBLeft from "./Component/GNBLeft";
+import { GNBRightPC } from "./Component/GNBRight";
 
 const Border = styled.div`
   display: flex;
@@ -21,18 +22,7 @@ const Container = styled.div`
   max-width: 1120px;
 `;
 
-export const GNBTablet = () => {
-  return (
-    <Border>
-      <Container>
-        <GNBLeft />
-        <GNBRightTablet />
-      </Container>
-    </Border>
-  );
-};
-
-export const GNBPC = () => {
+export default () => {
   return (
     <Border>
       <Container>
