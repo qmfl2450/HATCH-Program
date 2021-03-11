@@ -31,7 +31,8 @@ const CategoryItems = styled(Link)`
 
 const Icon = styled.i`
   margin-left: 2px;
-  font-size: 13px;
+  font-size: 16px;
+  color: #f86d7d;
 `;
 
 const CategoryMenu = ({ tablet }) => {

@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const Menu = styled.i`
-  font-size: 32px;
+  font-size: 24px;
   color: #3da8f5;
 `;
 
@@ -35,14 +35,14 @@ const Right = styled.div`
 const UserIcon = styled.i`
   display: block;
   margin-right: ${(props) => (props.margin ? "12px" : 0)};
-  font-size: 32px;
+  font-size: 24px;
   color: #858896;
 `;
 
 export default () => {
   return (
     <Container>
-      <Menu className="icon-menu" />
+      <Menu className="icon-Menu" />
       <Logo src={ImageLogo} />
       <Right>
         <UserIcon className="icon-Search" margin />

@@ -11,20 +11,14 @@ export default () => {
   } = useContext(ProductionContext);
 
   // 평균 별점에 따라 star의 색을 변환하기 위해 array state
-  const [fill, setFill] = useState([
-    "icon-FilledStar",
-    "icon-FilledStar",
-    "icon-FilledStar",
-    "icon-FilledStar",
-    "icon-FilledStar",
-  ]);
-  // 평균 별점이 인덱스보다 높으면 해당 값을 "icon-Vector"로 바꿈
+  const [fill, setFill] = useState([false, false, false, false, false]);
+  // 평균 별점이 인덱스보다 높으면 해당 값을 true로 바꿈
   const fillRating = (avg) => {
     const ratingCheck = fill;
 
     ratingCheck.forEach((v, i) => {
       if (avg > i) {
-        ratingCheck.splice(i, 1, "icon-Vector");
+        ratingCheck.splice(i, 1, true);
       } else return;
     });
     setFill([...ratingCheck]);
@@ -40,7 +34,7 @@ export default () => {
 
   const ReviewStar = styled.i`
     font-size: 16px;
-    color: #a2a5af;
+    color: ${(props) => (props.fill ? "#3DA5F5" : "#E0E2E7")};
     &:last-child {
       margin-right: 8px;
     }
@@ -50,11 +44,11 @@ export default () => {
     <ReviewStarDiv>
       {result && (
         <>
-          <ReviewStar className={fill[0]} />
-          <ReviewStar className={fill[1]} />
-          <ReviewStar className={fill[2]} />
-          <ReviewStar className={fill[3]} />
-          <ReviewStar className={fill[4]} />
+          <ReviewStar className={"icon-Star"} fill={fill[0]} />
+          <ReviewStar className={"icon-Star"} fill={fill[1]} />
+          <ReviewStar className={"icon-Star"} fill={fill[2]} />
+          <ReviewStar className={"icon-Star"} fill={fill[3]} />
+          <ReviewStar className={"icon-Star"} fill={fill[4]} />
         </>
       )}
     </ReviewStarDiv>

@@ -24,8 +24,8 @@ const UserIcons = styled.div`
 export const UserIcon = styled.i`
   display: block;
   margin-right: ${(props) => (props.margin ? "12px" : 0)};
-  font-size: 24px;
-  color: #858896;
+  font-size: ${(props) => (props.search ? "20px" : "24px")};
+  color: #8c8d96;
   &:hover {
     cursor: pointer;
   }
@@ -47,7 +47,7 @@ export const GNBRightTablet = () => {
   return (
     <Right>
       <UserIcons>
-        <UserIcon className="icon-Search" margin />
+        <UserIcon className="icon-Search" margin search />
         <UserIcon className="icon-Bookmark" margin />
         <UserIcon className="icon-Bell" margin />
         <UserIcon className="icon-Cart" margin />

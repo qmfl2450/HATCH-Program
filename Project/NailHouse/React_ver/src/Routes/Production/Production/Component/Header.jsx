@@ -11,6 +11,7 @@ import {
 } from "../../../../Component/Span";
 import ReviewStars from "../../Component/ReviewStars";
 import { OriginPrice, SellingPrice } from "../../Component/PriceInfo";
+import Select from "./Select/Select";
 
 export default () => {
   // production 정보가 담긴 state 호출
@@ -127,6 +128,7 @@ export default () => {
   const DeliveryDiv = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
     border-top: 1px solid #e0e2e7;
     border-bottom: 1px solid #e0e2e7;
     padding: 16px 0 20px 0;
@@ -229,19 +231,18 @@ export default () => {
               </BaseSpan>
             )}
             {result && result.delivery.delivery_type === 0 && (
-              <>
-                <TinySpan
-                  color="#8C8D96"
-                  bgc="#E0E2E7"
-                  weight="700"
-                  padding="2px 6px"
-                  radius="4px"
-                >
-                  무료배송
-                </TinySpan>
-              </>
+              <TinySpan
+                color="#8C8D96"
+                bgc="#E0E2E7"
+                weight="700"
+                padding="2px 6px"
+                radius="4px"
+              >
+                무료배송
+              </TinySpan>
             )}
           </DeliveryDiv>
+          <Select large />
         </ProductionOverview>
       </OverViewDiv>
     </Container>

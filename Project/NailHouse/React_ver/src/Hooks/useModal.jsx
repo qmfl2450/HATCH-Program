@@ -11,5 +11,16 @@ export default () => {
     setModal(false);
   };
 
-  return { modal, showModal, closeModal };
+  const toggleModal = () => {
+    switch (modal) {
+      case true:
+        setModal(false);
+        break;
+      case false:
+        setModal(true);
+        break;
+    }
+  };
+
+  return { modal, showModal, closeModal, toggleModal };
 };
