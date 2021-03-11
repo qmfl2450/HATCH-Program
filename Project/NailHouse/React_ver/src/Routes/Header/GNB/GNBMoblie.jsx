@@ -5,6 +5,7 @@ import ImageLogo from "../../../assets/img/logo/logo.svg";
 import "../../../assets/fonts/style.css";
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,12 +16,16 @@ const Container = styled.div`
 `;
 
 const Menu = styled.i`
-  font-size: 24px;
+  font-size: 32px;
   color: #3da8f5;
 `;
 
 const Logo = styled.img`
-  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
 `;
 
 const Right = styled.div`
@@ -30,7 +35,7 @@ const Right = styled.div`
 const UserIcon = styled.i`
   display: block;
   margin-right: ${(props) => (props.margin ? "12px" : 0)};
-  font-size: 24px;
+  font-size: 32px;
   color: #858896;
 `;
 

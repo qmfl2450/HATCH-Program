@@ -14,5 +14,5 @@ export default (n) => {
 
   const isAllChecked = check.every((x) => x);
 
-  return { check, handleCheckClick, isAllChecked };
+  return { check, setCheck, handleCheckClick, isAllChecked };
 };

@@ -1,7 +1,7 @@
 @font-face {
   font-family: "icomoon";
-  src: url("./icomoon.eot");
-  src: url("./icomoon.eot") format("embedded-opentype"),
+  src: url("./icomoon.eot?moytiy");
+  src: url("./icomoon.eot?moytiy#iefix") format("embedded-opentype"),
     url("./icomoon.ttf") format("truetype"),
     url("./icomoon.woff") format("woff"), url("./icomoon.svg") format("svg");
   font-weight: normal;
@@ -24,11 +24,9 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-menu:before {
-  content: "\e90e";
-}
-.icon-chevron-right:before {
-  content: "\e90d";
+.icon-Vector:before {
+  content: "\e90f";
+  color: #3da5f5;
 }
 .icon-uniE900:before {
   content: "\e900";
@@ -69,4 +67,10 @@ i {
 }
 .icon-Star:before {
   content: "\e90b";
+}
+.icon-menu:before {
+  content: "\e90e";
+}
+.icon-chevron-right:before {
+  content: "\e90d";
 }

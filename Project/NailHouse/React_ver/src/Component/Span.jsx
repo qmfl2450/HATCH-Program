@@ -8,9 +8,15 @@ const MicroSpan = styled.span`
   letter-spacing: -0.05em;
 
   margin: ${(props) => (props.margin ? props.margin : "0")};
+  border: ${(props) => (props.border ? props.border : "none")};
+  border-radius: ${(props) => (props.radius ? props.radius : "0")};
+  padding: ${(props) => (props.padding ? props.padding : "0")};
+  background-color: ${(props) => (props.bgc ? props.bgc : "none")};
   font-weight: ${(props) => (props.weight ? props.weight : "400")};
   color: ${(props) =>
-    props.dark
+    props.color
+      ? props.color
+      : props.dark
       ? "#191A20"
       : props.primary
       ? "#3F4150"
@@ -26,6 +32,8 @@ const MicroSpan = styled.span`
       ? "#F86D7D"
       : props.green
       ? "#22C58B"
+      : props.white
+      ? "#fff"
       : "#000"};
 `;
 
@@ -36,9 +44,15 @@ const TinySpan = styled.span`
   letter-spacing: -0.01em;
 
   margin: ${(props) => (props.margin ? props.margin : "0")};
+  border: ${(props) => (props.border ? props.border : "none")};
+  border-radius: ${(props) => (props.radius ? props.radius : "0")};
+  padding: ${(props) => (props.padding ? props.padding : "0")};
+  background-color: ${(props) => (props.bgc ? props.bgc : "none")};
   font-weight: ${(props) => (props.weight ? props.weight : "400")};
   color: ${(props) =>
-    props.dark
+    props.color
+      ? props.color
+      : props.dark
       ? "#191A20"
       : props.primary
       ? "#3F4150"
@@ -54,6 +68,8 @@ const TinySpan = styled.span`
       ? "#F86D7D"
       : props.green
       ? "#22C58B"
+      : props.white
+      ? "#fff"
       : "#000"};
 `;
 
@@ -64,9 +80,15 @@ const SmallSpan = styled.span`
   letter-spacing: -0.01em;
 
   margin: ${(props) => (props.margin ? props.margin : "0")};
+  border: ${(props) => (props.border ? props.border : "none")};
+  border-radius: ${(props) => (props.radius ? props.radius : "0")};
+  padding: ${(props) => (props.padding ? props.padding : "0")};
+  background-color: ${(props) => (props.bgc ? props.bgc : "none")};
   font-weight: ${(props) => (props.weight ? props.weight : "400")};
   color: ${(props) =>
-    props.dark
+    props.color
+      ? props.color
+      : props.dark
       ? "#191A20"
       : props.primary
       ? "#3F4150"
@@ -82,6 +104,8 @@ const SmallSpan = styled.span`
       ? "#F86D7D"
       : props.green
       ? "#22C58B"
+      : props.white
+      ? "#fff"
       : "#000"};
 `;
 
@@ -92,9 +116,15 @@ const BaseSpan = styled.span`
   letter-spacing: -0.01em;
 
   margin: ${(props) => (props.margin ? props.margin : "0")};
+  border: ${(props) => (props.border ? props.border : "none")};
+  border-radius: ${(props) => (props.radius ? props.radius : "0")};
+  padding: ${(props) => (props.padding ? props.padding : "0")};
+  background-color: ${(props) => (props.bgc ? props.bgc : "none")};
   font-weight: ${(props) => (props.weight ? props.weight : "400")};
   color: ${(props) =>
-    props.dark
+    props.color
+      ? props.color
+      : props.dark
       ? "#191A20"
       : props.primary
       ? "#3F4150"
@@ -110,6 +140,8 @@ const BaseSpan = styled.span`
       ? "#F86D7D"
       : props.green
       ? "#22C58B"
+      : props.white
+      ? "#fff"
       : "#000"};
 `;
 
@@ -120,9 +152,15 @@ const MediumSpan = styled.span`
   letter-spacing: -0.02em;
 
   margin: ${(props) => (props.margin ? props.margin : "0")};
+  border: ${(props) => (props.border ? props.border : "none")};
+  border-radius: ${(props) => (props.radius ? props.radius : "0")};
+  padding: ${(props) => (props.padding ? props.padding : "0")};
+  background-color: ${(props) => (props.bgc ? props.bgc : "none")};
   font-weight: ${(props) => (props.weight ? props.weight : "400")};
   color: ${(props) =>
-    props.dark
+    props.color
+      ? props.color
+      : props.dark
       ? "#191A20"
       : props.primary
       ? "#3F4150"
@@ -138,20 +176,26 @@ const MediumSpan = styled.span`
       ? "#F86D7D"
       : props.green
       ? "#22C58B"
+      : props.white
+      ? "#fff"
       : "#000"};
 `;
 
 const LargeSpan = styled.span`
   display: block;
-  font-size: 24px;
-  line-height: 34px;
+  font-size: 28px;
+  line-height: 32px;
   letter-spacing: -0.02em;
 
   margin: ${(props) => (props.margin ? props.margin : "0")};
+  border: ${(props) => (props.border ? props.border : "none")};
+  border-radius: ${(props) => (props.radius ? props.radius : "0")};
+  padding: ${(props) => (props.padding ? props.padding : "0")};
+  background-color: ${(props) => (props.bgc ? props.bgc : "none")};
   font-weight: ${(props) => (props.weight ? props.weight : "400")};
   color: ${(props) =>
     props.dark
-      ? "#191A20"
+      ? "#505364"
       : props.primary
       ? "#3F4150"
       : props.secondary
@@ -166,6 +210,8 @@ const LargeSpan = styled.span`
       ? "#F86D7D"
       : props.green
       ? "#22C58B"
+      : props.white
+      ? "#fff"
       : "#000"};
 `;
 
