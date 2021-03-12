@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ProductionContext } from "../../../../../Context/ProductionContext";
-import { SelectContext } from "./Context";
+import { ProductionContext } from "../../../../../../Context/ProductionContext";
+import { SelectContext } from "../../../../../../Context/SelectContext";
+import { SelectModalContext } from "./Context";
 
 export default ({ large }) => {
   // production 정보가 담긴 state 호출
@@ -11,7 +12,8 @@ export default ({ large }) => {
   } = useContext(ProductionContext);
 
   // 옵션 선택 시 해당 상품 옵션 정보를 담는 array state
-  const { closeModal, array, addItem } = useContext(SelectContext);
+  const { addItem } = useContext(SelectContext);
+  const { closeModal } = useContext(SelectModalContext);
 
   const SelectModal = styled.ol`
     display: flex;
@@ -46,18 +48,31 @@ export default ({ large }) => {
               return (
                 <ModalItem
                   onClick={() => {
-                    addItem({ name: v.option_name, price: v.selling_price });
+                    addItem({
+                      name: v.option_name,
+                      price: v.selling_price
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+                    });
                     closeModal();
                   }}
                 >
-                  {v.option_name}({v.selling_price})
+                  {v.option_name}(
+                  {v.selling_price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  )
                 </ModalItem>
               );
             }
             if (v.is_sold_out === 1) {
               return (
                 <ModalItem disable>
-                  {v.option_name}({v.selling_price}) / 품절
+                  {v.option_name}(
+                  {v.selling_price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  ) / 품절
                 </ModalItem>
               );
             }

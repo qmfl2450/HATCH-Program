@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ProductionContext } from "../../../../../Context/ProductionContext";
-import { SelectContext } from "./Context";
+import { ProductionContext } from "../../../../../../Context/ProductionContext";
+import { SelectModalContext } from "./Context";
 
-import { BaseSpan } from "../../../../../Component/Span";
+import { BaseSpan } from "../../../../../../Component/Span";
 import SelectModal from "./SelectModal";
 import SelectedItem from "./SelectedItem";
 
@@ -15,10 +15,10 @@ export default ({ large }) => {
   } = useContext(ProductionContext);
 
   // Select box 클릭 시 모달 창이 보이도록 관리하는 state 호출
-  const { modal, toggleModal, closeModal } = useContext(SelectContext);
+  const { modal, toggleModal, closeModal } = useContext(SelectModalContext);
 
   const Container = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     &:hover {
       background-color: #f7f8fa;
     }

@@ -35,6 +35,7 @@ const globalStyles = createGlobalStyle`
         }
     }
     select {
+        font-family: "Noto Sans KR", sans-serif;
         -webkit-appearance: none;  /* 네이티브 외형 감추기 */
         -moz-appearance: none;
         appearance: none;

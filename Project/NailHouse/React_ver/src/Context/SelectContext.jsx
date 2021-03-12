@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import useModal from "../../../../../Hooks/useModal";
+import useModal from "../Hooks/useModal";
 
 export const SelectContext = React.createContext();
 
@@ -31,13 +31,8 @@ const SelectContextProvider = ({ children }) => {
     setArray([...deleteArray]);
   };
 
-  // Select box 클릭 시 모달 창이 보이도록 관리하는 state 호출
-  const { modal, toggleModal, closeModal } = useModal();
-
   return (
-    <SelectContext.Provider
-      value={{ array, addItem, deleteItem, modal, toggleModal, closeModal }}
-    >
+    <SelectContext.Provider value={{ array, addItem, deleteItem }}>
       {children}
     </SelectContext.Provider>
   );
