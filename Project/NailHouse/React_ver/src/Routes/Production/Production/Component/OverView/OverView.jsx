@@ -13,11 +13,11 @@ export default () => {
   const {
     result: { result, error, loading },
   } = useContext(ProductionContext);
-  console.log(result);
 
   // 상품 개요
   const OverViewDiv = styled.div`
     display: flex;
+    margin-bottom: 40px;
   `;
 
   // 상품 정보 (우측)
@@ -32,7 +32,7 @@ export default () => {
         <ProductionOverview>
           <ProductionOverView />
           <Select large />
-          <Order />
+          <Order large />
         </ProductionOverview>
       </OverViewDiv>
     </>

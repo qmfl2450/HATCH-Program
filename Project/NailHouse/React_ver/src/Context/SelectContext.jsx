@@ -12,7 +12,7 @@ const SelectContextProvider = ({ children }) => {
   const addItem = (item) => {
     if (array.find((v) => v.name === item.name) === undefined) {
       const addArray = array;
-      addArray.push(item);
+      addArray.unshift(item);
       setArray([...addArray]);
       return;
     }

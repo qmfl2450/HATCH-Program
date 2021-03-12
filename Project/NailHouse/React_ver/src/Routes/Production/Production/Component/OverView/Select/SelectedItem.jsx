@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import { ProductionContext } from "../../../../../../Context/ProductionContext";
@@ -15,14 +15,12 @@ export default ({ large }) => {
   // 옵션 선택 시 해당 상품 옵션 정보를 담는 array state
   const { array, deleteItem } = useContext(SelectContext);
 
-  useEffect(() => console.log(array), [array]);
-
   const SelectedItemDiv = styled.div`
     position: relative;
     margin-bottom: 8px;
     border-radius: 6px;
     padding: 8px 10px;
-    width: ${(props) => (props.large ? "455px" : "360px")};
+    max-width: ${(props) => (props.large ? "100%" : "360px")};
     background-color: #f7f8fa;
   `;
 
@@ -89,7 +87,9 @@ export default ({ large }) => {
         <SelectedItemDiv large={large}>
           <SelectedItemTop>
             {result && (
-              <BaseSpan>{result.production.options[0].option_name}</BaseSpan>
+              <BaseSpan primary>
+                {result.production.options[0].option_name}
+              </BaseSpan>
             )}
           </SelectedItemTop>
           <SelectedItemBottom>
@@ -110,13 +110,15 @@ export default ({ large }) => {
             </SelectBoxDiv>
             <OptionPrice>
               {result && (
-                <BaseSpan weight="700">
+                <BaseSpan weight="700" dark>
                   {result.production.options[0].selling_price
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </BaseSpan>
               )}
-              <SmallSpan weight="700">원</SmallSpan>
+              <SmallSpan weight="700" dark>
+                원
+              </SmallSpan>
             </OptionPrice>
           </SelectedItemBottom>
         </SelectedItemDiv>
@@ -127,7 +129,7 @@ export default ({ large }) => {
           return (
             <SelectedItemDiv large={large}>
               <SelectedItemTop>
-                <BaseSpan>{v.name}</BaseSpan>
+                <BaseSpan primary>{v.name}</BaseSpan>
                 <DeleteItem
                   className="icon-Close"
                   onClick={(e) => {
@@ -153,8 +155,12 @@ export default ({ large }) => {
                   <SelectBoxArrow className="icon-Caret" />
                 </SelectBoxDiv>
                 <OptionPrice>
-                  <BaseSpan weight="700">{v.price}</BaseSpan>
-                  <SmallSpan weight="700">원</SmallSpan>
+                  <BaseSpan weight="700" dark>
+                    {v.price}
+                  </BaseSpan>
+                  <SmallSpan weight="700" dark>
+                    원
+                  </SmallSpan>
                 </OptionPrice>
               </SelectedItemBottom>
             </SelectedItemDiv>

@@ -8,7 +8,7 @@ import { BaseSpan } from "../../../../../../Component/Span";
 import SelectModal from "./SelectModal";
 import SelectedItem from "./SelectedItem";
 
-export default ({ large }) => {
+export default ({ large, margin }) => {
   // production 정보가 담긴 state 호출
   const {
     result: { result },
@@ -18,7 +18,7 @@ export default ({ large }) => {
   const { modal, toggleModal, closeModal } = useContext(SelectModalContext);
 
   const Container = styled.div`
-    margin-bottom: 10px;
+    margin-bottom: ${(props) => (props.margin ? props.margin : "10px")};
     &:hover {
       background-color: #f7f8fa;
     }
@@ -29,7 +29,7 @@ export default ({ large }) => {
     border: 1px solid #3da5f5;
     border-radius: 4px;
     padding: 8px 16px;
-    width: ${(props) => (props.large ? "455px" : "360px")};
+    max-width: ${(props) => (props.large ? "100%" : "360px")};
     height: 40px;
     &:hover {
       cursor: pointer;
@@ -47,7 +47,7 @@ export default ({ large }) => {
   return (
     <>
       {result && result.production.options.length > 1 && (
-        <Container>
+        <Container margin={margin}>
           <Select large={large} onClick={toggleModal} onBlur={closeModal}>
             <BaseSpan primary>선택</BaseSpan>
             <Icon className="icon-Caret" />

@@ -4,10 +4,10 @@ import SelectContextProvider from "./Context";
 
 import Select from "./Select";
 
-export default ({ large }) => {
+export default ({ large, margin }) => {
   return (
     <SelectContextProvider>
-      <Select large={large} />
+      <Select large={large} margin={margin} />
     </SelectContextProvider>
   );
 };

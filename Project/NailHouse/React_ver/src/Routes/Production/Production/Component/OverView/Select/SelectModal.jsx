@@ -19,7 +19,7 @@ export default ({ large }) => {
     display: flex;
     flex-direction: column;
     border: solid 1px #858896;
-    width: ${(props) => (props.large ? "455px" : "360px")};
+    max-width: ${(props) => (props.large ? "100%" : "360px")};
     &:hover {
       cursor: default;
       background-color: #fff;

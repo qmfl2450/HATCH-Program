@@ -8,7 +8,6 @@ export default () => {
   const {
     result: { result, error, loading },
   } = useContext(ProductionContext);
-  console.log(result);
 
   // 카테고리
   const Category = styled.ol`

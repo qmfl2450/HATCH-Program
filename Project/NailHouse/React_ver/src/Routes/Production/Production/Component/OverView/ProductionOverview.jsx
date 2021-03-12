@@ -17,7 +17,6 @@ export default () => {
   const {
     result: { result, error, loading },
   } = useContext(ProductionContext);
-  console.log(result);
 
   // 리뷰 total
   const ReviewTotal = styled.div`

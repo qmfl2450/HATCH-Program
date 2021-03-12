@@ -8,7 +8,6 @@ export default () => {
   const {
     result: { result, error, loading },
   } = useContext(ProductionContext);
-  console.log(result);
 
   // 상품 이미지 (좌측)
   const ProductionImageDiv = styled.div`
