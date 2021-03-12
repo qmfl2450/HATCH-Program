@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import ImageLogo from "../../../../assets/img/logo/logo.svg";
+import ImageLogo from "../../../../../assets/img/logo/logo.svg";
 
 const Left = styled.div`
   display: flex;

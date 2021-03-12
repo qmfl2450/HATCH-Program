@@ -1,14 +1,13 @@
 import React from "react";
-import ProductionContextProvider from "./Context.jsx";
 
-import Header from "../Header/index.jsx";
-import Production from "./Production/index.jsx";
+import Header from "../Home/Header/index";
+import Production from "./Production/index";
 
 export default () => {
   return (
-    <ProductionContextProvider>
+    <>
       <Header />
       <Production />
-    </ProductionContextProvider>
+    </>
   );
 };

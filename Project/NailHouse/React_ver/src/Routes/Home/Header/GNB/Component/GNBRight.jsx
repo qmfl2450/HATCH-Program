@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
-import { LoginContext } from "../../../../Context/LoginContext";
+import { LoginContext } from "../../../../../Context/LoginContext";
+import { UserContext } from "../../../../../Context/UserContext";
 
-import Button from "../../../../Component/Button";
+import Button from "../../../../../Component/Button";
 import SearchBar from "../SearchBar/SearchBar";
 
-import ImageUser from "../../../../assets/img/Home/icon-default-user.svg";
-import "../../../../assets/fonts/style.css";
-import { useHistory } from "react-router-dom";
-import { UserContext } from "../../../../Context/UserContext";
+import ImageUser from "../../../../../assets/img/Home/icon-default-user.svg";
+import "../../../../../assets/fonts/style.css";
 
 const Right = styled.div`
   display: flex;

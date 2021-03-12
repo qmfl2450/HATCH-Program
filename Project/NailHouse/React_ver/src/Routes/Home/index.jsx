@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 
 import { UserContext } from "../../Context/UserContext";
 
-import GNB from "./GNB/index";
-import CategoryMenu from "./CategoryMenu/CategoryMenu";
+import Header from "./Header/index";
 
 export default () => {
   const {
@@ -13,8 +12,7 @@ export default () => {
 
   return (
     <>
-      <GNB />
-      <CategoryMenu />
+      <Header />
     </>
   );
 };

@@ -34,6 +34,18 @@ const globalStyles = createGlobalStyle`
             color: inherit;
         }
     }
+    select {
+        -webkit-appearance: none;  /* 네이티브 외형 감추기 */
+        -moz-appearance: none;
+        appearance: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    select::-ms-expand {
+        display: none;
+    }
+
 
     /* 효과가 서서히 나타나게 함 */
     .fade-in {

@@ -1,24 +1,23 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ProductionContext } from "../../../Context";
+import { ProductionContext } from "../../../../../Context/ProductionContext";
 import { SelectContext } from "./Context";
 
-import SelectedItem from "./SelectedItem";
-
-export default () => {
+export default ({ large }) => {
   // production 정보가 담긴 state 호출
   const {
     result: { result, loading, error },
   } = useContext(ProductionContext);
 
   // 옵션 선택 시 해당 상품 옵션 정보를 담는 array state
-  const { addItem } = useContext(SelectContext);
+  const { closeModal, array, addItem } = useContext(SelectContext);
 
   const SelectModal = styled.ol`
     display: flex;
     flex-direction: column;
     border: solid 1px #858896;
+    width: ${(props) => (props.large ? "455px" : "360px")};
     &:hover {
       cursor: default;
       background-color: #fff;
@@ -38,30 +37,32 @@ export default () => {
   `;
 
   return (
-    <SelectModal>
-      <ModalItem disable>선택</ModalItem>
-      {result &&
-        result.production.options.map((v) => {
-          if (v.is_sold_out === 0) {
-            return (
-              <ModalItem
-                onClick={() => {
-                  addItem({ name: v.option_name, price: v.selling_price });
-                }}
-              >
-                {v.option_name}({v.selling_price})
-              </ModalItem>
-            );
-          }
-          if (v.is_sold_out === 1) {
-            return (
-              <ModalItem disable>
-                {v.option_name}({v.selling_price}) / 품절
-              </ModalItem>
-            );
-          }
-        })}
-      <SelectedItem />
-    </SelectModal>
+    <>
+      <SelectModal large={large}>
+        <ModalItem disable>선택</ModalItem>
+        {result &&
+          result.production.options.map((v) => {
+            if (v.is_sold_out === 0) {
+              return (
+                <ModalItem
+                  onClick={() => {
+                    addItem({ name: v.option_name, price: v.selling_price });
+                    closeModal();
+                  }}
+                >
+                  {v.option_name}({v.selling_price})
+                </ModalItem>
+              );
+            }
+            if (v.is_sold_out === 1) {
+              return (
+                <ModalItem disable>
+                  {v.option_name}({v.selling_price}) / 품절
+                </ModalItem>
+              );
+            }
+          })}
+      </SelectModal>
+    </>
   );
 };

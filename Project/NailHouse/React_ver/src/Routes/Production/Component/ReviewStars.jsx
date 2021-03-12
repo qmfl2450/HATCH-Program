@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
-import { ProductionContext } from "../Context";
+import { ProductionContext } from "../../../Context/ProductionContext";
 
 export default () => {
   // production 정보가 담긴 state 호출

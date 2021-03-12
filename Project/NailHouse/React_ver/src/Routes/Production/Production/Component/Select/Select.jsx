@@ -1,24 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ProductionContext } from "../../../Context";
-import useModal from "../../../../../Hooks/useModal";
+import { ProductionContext } from "../../../../../Context/ProductionContext";
+import { SelectContext } from "./Context";
 
 import { BaseSpan } from "../../../../../Component/Span";
 import SelectModal from "./SelectModal";
-import useBoolean from "../../../../../Hooks/useBoolean";
-import SelectContextProvider from "./Context";
+import SelectedItem from "./SelectedItem";
 
 export default ({ large }) => {
   // production 정보가 담긴 state 호출
   const {
-    result: { result, loading, error },
+    result: { result },
   } = useContext(ProductionContext);
 
   // Select box 클릭 시 모달 창이 보이도록 관리하는 state 호출
-  const { modal, toggleModal, closeModal } = useModal();
+  const { modal, toggleModal, closeModal } = useContext(SelectContext);
 
   const Container = styled.div`
+    margin-bottom: 20px;
     &:hover {
       background-color: #f7f8fa;
     }
@@ -45,16 +45,17 @@ export default ({ large }) => {
   `;
 
   return (
-    <SelectContextProvider>
+    <>
       {result && result.production.options.length > 1 && (
         <Container>
           <Select large={large} onClick={toggleModal} onBlur={closeModal}>
             <BaseSpan primary>선택</BaseSpan>
             <Icon className="icon-Caret" />
           </Select>
-          {modal ? <SelectModal /> : <></>}
+          {modal && <SelectModal large={large} />}
         </Container>
       )}
-    </SelectContextProvider>
+      <SelectedItem large={large} />
+    </>
   );
 };

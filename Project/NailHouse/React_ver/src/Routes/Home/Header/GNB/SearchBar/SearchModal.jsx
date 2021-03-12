@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import SearchItem from "./SearchItem";
-import "../../../../assets/fonts/style.css";
-import "../../../../assets/fonts/font.css";
+import "../../../../../assets/fonts/style.css";
+import "../../../../../assets/fonts/font.css";
 
 const SearchModal = styled.div`
   position: absolute;

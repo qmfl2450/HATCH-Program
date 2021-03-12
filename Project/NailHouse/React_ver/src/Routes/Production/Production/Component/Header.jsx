@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ProductionContext } from "../../Context";
+import { ProductionContext } from "../../../../Context/ProductionContext";
 
 import {
   BaseSpan,
@@ -11,13 +11,12 @@ import {
 } from "../../../../Component/Span";
 import ReviewStars from "../../Component/ReviewStars";
 import { OriginPrice, SellingPrice } from "../../Component/PriceInfo";
-import Select from "./Select/Select";
+import Select from "./Select/index";
 
 export default () => {
   // production 정보가 담긴 state 호출
   const {
-    result: { result, loading, error },
-    setResult,
+    result: { result, error, loading },
   } = useContext(ProductionContext);
   console.log(result);
 
@@ -128,14 +127,16 @@ export default () => {
   const DeliveryDiv = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     margin-bottom: 20px;
     border-top: 1px solid #e0e2e7;
     border-bottom: 1px solid #e0e2e7;
     padding: 16px 0 20px 0;
   `;
 
-  return error ? (
-    <>error</>
+  return loading ? (
+    <></>
   ) : (
     <Container>
       <Category>
@@ -143,7 +144,7 @@ export default () => {
           result.category.map((v) => (
             <>
               <CategoryItem>{v}</CategoryItem>
-              <Chevron className="icon-chevron-right" />
+              <Chevron className="icon-Chevron-Right" />
             </>
           ))}
       </Category>
@@ -239,6 +240,14 @@ export default () => {
                 radius="4px"
               >
                 무료배송
+              </TinySpan>
+            )}
+            {result && result.delivery.delivery_type === 1 && (
+              <TinySpan color="#8C8D96">
+                {result.delivery.delivery_fee
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                원
               </TinySpan>
             )}
           </DeliveryDiv>

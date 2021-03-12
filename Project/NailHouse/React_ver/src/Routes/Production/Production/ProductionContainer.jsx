@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { ProductionAPI } from "../../../api";
-import { ProductionContext } from "../Context";
+import { ProductionContext } from "../../../Context/ProductionContext";
 
 import ProductionPresenter from "./ProductionPresenter";
 

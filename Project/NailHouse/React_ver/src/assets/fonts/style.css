@@ -1,7 +1,7 @@
 @font-face {
   font-family: "icomoon";
-  src: url("./icomoon.eot?qatrb6");
-  src: url("./icomoon.eot?qatrb6#iefix") format("embedded-opentype"),
+  src: url("./icomoon.eot?mxutv6");
+  src: url("./icomoon.eot?mxutv6#iefix") format("embedded-opentype"),
     url("./icomoon.ttf") format("truetype"),
     url("./icomoon.woff") format("woff"), url("./icomoon.svg") format("svg");
   font-weight: normal;
@@ -24,6 +24,13 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-Chevron-Left:before {
+  content: "\e910";
+}
+.icon-Chevron-Right:before {
+  content: "\e911";
+  color: #b2b3b9;
+}
 .icon-Bell:before {
   content: "\e900";
 }
