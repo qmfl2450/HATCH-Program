@@ -5,5 +5,6 @@ const api = axios.create({
 });
 
 export const ProductionAPI = {
+  getProductionAll: () => api.get("production/"),
   getProduction: (id) => api.get(`production/${id}`),
 };

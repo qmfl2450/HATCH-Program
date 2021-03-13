@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { MediumSpan } from "../../../Component/Span";
 
+import { ProductionContext } from "../../../Context/ProductionContext";
+
+import { MediumSpan } from "../../../Component/Span";
 import ProductionCard from "./ProductionCard";
 
 const Body = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `;
 
 const Container = styled.div`
@@ -19,14 +22,30 @@ const Container = styled.div`
   max-width: 1240px;
 `;
 
+const ProductionCardDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
 export default () => {
+  const {
+    result: { result, loading, error },
+  } = useContext(ProductionContext);
+
   return (
     <Body>
       <Container>
-        <MediumSpan dark weight="700">
+        <MediumSpan dark weight="700" margin="0 0 25px 0">
           인기 상품
         </MediumSpan>
-        <ProductionCard />
+        <ProductionCardDiv>
+          {result &&
+            result.production.map((v) => {
+              return <ProductionCard href={`/productions/${v.id}`} id={v.id} />;
+            })}
+        </ProductionCardDiv>
       </Container>
     </Body>
   );

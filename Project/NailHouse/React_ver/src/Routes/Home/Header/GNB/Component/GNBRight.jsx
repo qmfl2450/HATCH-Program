@@ -81,6 +81,9 @@ export const GNBRightPC = () => {
               User("");
               history.push("/users/signin");
             }
+            if (!login) {
+              history.push("/users/signin");
+            }
           }}
         />
       </UserIcons>

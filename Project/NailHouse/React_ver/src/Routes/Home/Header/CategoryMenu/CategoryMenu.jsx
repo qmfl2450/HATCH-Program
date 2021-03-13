@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const Border = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
   border-bottom: 1px solid #e0e2e7;
   width: 100%;
   height: 50px;
@@ -21,7 +20,7 @@ const Container = styled.div`
   max-width: 1240px;
 `;
 
-const CategoryItems = styled(Link)`
+const CategoryItems = styled.a`
   margin-right: ${(props) => (props.last ? "0" : "20px")};
   font-size: 14px;
   font-weight: 700;
@@ -40,15 +39,15 @@ const CategoryMenu = ({ tablet }) => {
   return (
     <Border>
       <Container tablet={tablet}>
-        <CategoryItems to="/store">스토어</CategoryItems>
-        <CategoryItems to="/category">홈카테고리</CategoryItems>
-        <CategoryItems to="/wedding-feed">신혼가구</CategoryItems>
-        <CategoryItems to="/ranks">베스트</CategoryItems>
-        <CategoryItems to="/today_deals">오늘의딜</CategoryItems>
-        <CategoryItems to="/special-feed">연휴특가</CategoryItems>
-        <CategoryItems to="/special-feed">월동준비</CategoryItems>
-        <CategoryItems to="/special-feed">리퍼마켓</CategoryItems>
-        <CategoryItems to="/showroom" last>
+        <CategoryItems href="/store">스토어</CategoryItems>
+        <CategoryItems href="/category">홈카테고리</CategoryItems>
+        <CategoryItems href="/wedding-feed">신혼가구</CategoryItems>
+        <CategoryItems href="/ranks">베스트</CategoryItems>
+        <CategoryItems href="/today_deals">오늘의딜</CategoryItems>
+        <CategoryItems href="/special-feed">연휴특가</CategoryItems>
+        <CategoryItems href="/special-feed">월동준비</CategoryItems>
+        <CategoryItems href="/special-feed">리퍼마켓</CategoryItems>
+        <CategoryItems href="/showroom" last>
           기획전
         </CategoryItems>
         <Icon className="icon-New" />

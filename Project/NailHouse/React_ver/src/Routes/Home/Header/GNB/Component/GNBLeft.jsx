@@ -11,7 +11,7 @@ const Left = styled.div`
   min-width: 392px;
 `;
 
-const LogoLink = styled(Link)`
+const LogoLink = styled.a`
   margin-right: 32px;
 `;
 
@@ -21,7 +21,7 @@ const Logo = styled.img`
 
 const Nav = styled.nav``;
 
-const NavItem = styled(Link)`
+const NavItem = styled.a`
   margin-right: 24px;
   font-size: 18px;
   font-weight: 700;
@@ -85,13 +85,13 @@ export default () => {
 
   return (
     <Left>
-      <LogoLink to="/">
+      <LogoLink href="/">
         <Logo src={ImageLogo} />
       </LogoLink>
       <Nav>
-        <NavItem to="/">커뮤니티</NavItem>
-        <NavItem to="/store">스토어</NavItem>
-        <NavItem to="/experts">인테리어시공</NavItem>
+        <NavItem href="/">커뮤니티</NavItem>
+        <NavItem href="/store">스토어</NavItem>
+        <NavItem href="/experts">인테리어시공</NavItem>
       </Nav>
     </Left>
   );

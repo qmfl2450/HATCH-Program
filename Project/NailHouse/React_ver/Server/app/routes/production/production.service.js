@@ -1,14 +1,31 @@
 const db = require("../../../helper/db");
 
-// 전체 상품 데이터
+// 상품 전체 조회
+
+// 상품 데이터 가져오기
 const productionFindAll = () => {
   return db("productions")
-    .select("*")
+    .select(
+      "id",
+      "brand_name",
+      "product_name",
+      "product_image",
+      "sale_percentage",
+      "selling_price"
+    )
     .andWhere("enabled", 1)
-    .then(([item]) => item);
+    .then((item) => item);
 };
 
-// 특정 상품 데이터
+// 리뷰 데이터 -> 총 개수, 평균 점수
+const ratingFindAll = () => {
+  return db("reviews")
+    .select("product_id", "rating")
+    .andWhere("enabled", 1)
+    .then((item) => item);
+};
+
+// 상품 상세 조회
 
 // 카테고리 데이터 가져오기
 const categoryFindById = (id) => {
@@ -121,6 +138,7 @@ const questionFindById = (id) => {
 
 module.exports = {
   productionFindAll,
+  ratingFindAll,
   categoryFindById,
   productionFindById,
   imageFindByProductId,

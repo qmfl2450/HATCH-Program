@@ -2,21 +2,31 @@ const { Router } = require("express");
 const router = Router();
 const service = require("./production.service");
 
-// 상품 전체 데이터
+// 상품 전체 조회
 router.get("/", async (req, res) => {
-  let product;
-  let id;
+  let production;
+  let product_image;
+  let rating;
 
   try {
-    product = await service.productionFindAll();
-    id = product.map((v) => v.id);
+    production = await service.productionFindAll();
+    id = production.map((v) => v.id);
   } catch (e) {
-    res.status(404).json({ message: "상품 데이터 전체 조회 오류" });
+    res.status(404).json({ message: "상품 전체 조회 에러" });
     return;
   }
+
+  try {
+    rating = await service.ratingFindAll();
+  } catch (e) {
+    res.status(404).json({ message: "상품 전체 조회 별점 에러" });
+    return;
+  }
+
+  res.json({ production, product_image, rating });
 });
 
-// 상품 특정 데이터
+// 상품 상세 조회
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   let product;
