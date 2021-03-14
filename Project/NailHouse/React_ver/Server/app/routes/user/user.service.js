@@ -24,6 +24,7 @@ const paged = async (
   }));
 };
 
+// id로 유저 조회
 const userFindById = (id) => {
   if (!id) {
     return Promise.reject("id 값이 없습니다.");
@@ -35,6 +36,7 @@ const userFindById = (id) => {
     .then(([item]) => item);
 };
 
+// 유저 전체 조회
 const userFindAll = ({ name, page = 10, pageSize = 10 }) => {
   const q = db(ACCOUNT).andWhere("enabled", 1);
   const fields = ["id", "nickname", "created_at", "updated_at"];
@@ -46,10 +48,12 @@ const userFindAll = ({ name, page = 10, pageSize = 10 }) => {
   return paged(q, { fields, page, pageSize });
 };
 
+// 유저 생성
 const userCreate = (user) => {
   return db(ACCOUNT).insert(user);
 };
 
+// 유저 업데이트
 const userUpdate = (id, user) => {
   return db(ACCOUNT).update(user).andWhere("id", id);
 };
