@@ -42,8 +42,12 @@ export default ({ href, id }) => {
   return (
     <>
       <CardDiv href={href}>
+        {" "}
+        {/* 카드 클릭 시 `productions/:id`로 이동 */}
         {result && (
           <>
+            {" "}
+            {/* product 데이터를 받아와서 출력함 */}
             <CardImg src={result.production[id - 1].product_image} />
             <MicroSpan color="#8C8D96" margin="0 0 4px 0">
               {result.production[id - 1].brand_name}
@@ -56,7 +60,8 @@ export default ({ href, id }) => {
               <MediumSpan dark weight="700">
                 {result.production[id - 1].selling_price
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                {/* 화폐 단위로 콤마(,)를 찍어줌 */}
               </MediumSpan>
             </PriceDiv>
           </>

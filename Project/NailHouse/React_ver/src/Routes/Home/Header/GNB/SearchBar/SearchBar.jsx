@@ -44,10 +44,11 @@ const SearchIcon = styled.i`
 `;
 
 export default () => {
-  const search = useInput();
+  const search = useInput(); // useInput() -> value = event.target.value로 설정됨
   const searchModal = useModal();
-  const searchValues = useArray(5);
+  const searchValues = useArray(5); // 제출한 검색어를 보관하는 array (localstorage에 저장됨)
 
+  // searchValues가 업데이트될 때마다 array가 비어있으면 modal창을 비활성화
   useEffect(() => {
     if (searchValues.array.length === 0) {
       searchModal.closeModal();
@@ -59,15 +60,14 @@ export default () => {
       <SearchForm
         onKeyDown={(e) => {
           if (e.keyCode === 13 && search.value !== 0) {
-            searchValues.addItem(search.value);
+            searchValues.addItem(search.value); // 검색어를 입력 후 Enter키를 누르면 검색어를 array에 담음
           }
         }}
         onClick={() => {
           if (searchValues.array.length !== 0) {
-            searchModal.showModal();
+            searchModal.showModal(); // search bar 클릭 시 이전 검색 내용이 존재하면 모달 창 활성화
           }
         }}
-        // onBlur={closeModal}
       >
         <SearchIcon className="icon-Search" />
         <SearchInput

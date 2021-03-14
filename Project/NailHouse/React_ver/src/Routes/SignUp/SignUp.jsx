@@ -174,12 +174,15 @@ export default () => {
   };
 
   useEffect(() => {
+    // id 입력 창이 포커스 상태에서 blur되고, id가 입력되지 않을 경우 alert
     if (idFocus.focus === false && idValue.value.length === 0) {
       idAlert.throwAlert();
     } else {
       idAlert.resetAlert();
     }
 
+    // pw 입력 창이 포커스 상태에서 blur되고, pw가 입력되지 않을 경우 alert
+    // pw가 8자리 미만일 경우 alert
     if (
       (pwFocus.focus === false && pwValue.value.length === 0) ||
       (pwFocus.focus === false &&
@@ -191,6 +194,8 @@ export default () => {
       pwAlert.resetAlert();
     }
 
+    // pw 재확인 입력 창이 포커스 상태에서 blur되고, pw 재확인이 입력되지 않을 경우 alert
+    // pw와 pw 재확인 값이 다를 경우 alert
     if (
       (pwReFocus.focus === false && pwReValue.value.length === 0) ||
       (pwReFocus.focus === false &&
@@ -202,6 +207,8 @@ export default () => {
       pwReAlert.resetAlert();
     }
 
+    // nickname 입력 창이 포커스 상태에서 blur되고, nickname이 입력되지 않을 경우 alert
+    // nickname이 2자리 미만 또는 15자리 초과할 경우 alert
     if (
       (nicknameFocus.focus === false && nicknameValue.value.length === 0) ||
       (nicknameFocus.focus === false &&

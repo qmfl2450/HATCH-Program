@@ -63,8 +63,8 @@ export const GNBRightTablet = () => {
 
 export const GNBRightPC = () => {
   const history = useHistory();
-  const { login, onLogout } = useContext(LoginContext);
-  const { User } = useContext(UserContext);
+  const { login, onLogout } = useContext(LoginContext); // 로그인 상태를 체크
+  const { User } = useContext(UserContext); // 유저 정보 (id)
 
   return (
     <Right>
@@ -77,9 +77,10 @@ export const GNBRightPC = () => {
           src={ImageUser}
           onClick={() => {
             if (login) {
+              // 유저 프로필 사진 클릭 시 로그인이 되어 있으면 로그아웃
               onLogout();
               User("");
-              history.push("/users/signin");
+              history.push("/users/signin"); // 로그인 페이지로 이동
             }
             if (!login) {
               history.push("/users/signin");
