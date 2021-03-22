@@ -12,7 +12,7 @@ const OrderDiv = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   margin: 20px 0;
-  max-width: ${(props) => (props.large ? "100%" : "360px")};
+  width: 100%;
 `;
 
 const TotalPriceDiv = styled.div`
@@ -35,7 +35,7 @@ const OrderButtonDiv = styled.div`
 
 const BookMark = styled.i``;
 
-export default ({ large }) => {
+export default () => {
   const {
     result: { result, error, loading },
   } = useContext(ProductionContext);
@@ -54,7 +54,7 @@ export default ({ large }) => {
 
   return (
     <>
-      <OrderDiv large={large}>
+      <OrderDiv>
         <TinySpan dark weight="700">
           주문금액
         </TinySpan>

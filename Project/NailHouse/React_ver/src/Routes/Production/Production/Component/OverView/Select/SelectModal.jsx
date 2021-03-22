@@ -5,7 +5,7 @@ import { ProductionContext } from "../../../../../../Context/ProductionContext";
 import { SelectContext } from "../../../../../../Context/SelectContext";
 import { SelectModalContext } from "./Context";
 
-export default ({ large }) => {
+export default () => {
   // production 정보가 담긴 state 호출
   const {
     result: { result, loading, error },
@@ -19,7 +19,6 @@ export default ({ large }) => {
     display: flex;
     flex-direction: column;
     border: solid 1px #858896;
-    max-width: ${(props) => (props.large ? "100%" : "360px")};
     &:hover {
       cursor: default;
       background-color: #fff;
@@ -40,7 +39,7 @@ export default ({ large }) => {
 
   return (
     <>
-      <SelectModal large={large}>
+      <SelectModal>
         <ModalItem disable>선택</ModalItem>
         {result &&
           result.production.options.map((v) => {

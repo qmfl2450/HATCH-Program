@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
 import { ProductionContext } from "../../../../../Context/ProductionContext";
@@ -9,10 +9,16 @@ export default () => {
     result: { result, error, loading },
   } = useContext(ProductionContext);
 
+  const [img, setImg] = useState([]);
+  const addImg = (img) => {
+    const newArray = [];
+    newArray.push(img);
+    setImg([...newArray]);
+  };
+
   // 상품 이미지 (좌측)
   const ProductionImageDiv = styled.div`
     display: flex;
-    margin-right: 82px;
   `;
 
   const ProductionImages = styled.div`
@@ -28,6 +34,7 @@ export default () => {
     &:last-child {
       margin-bottom: 0;
     }
+    cursor: pointer;
   `;
 
   const ProductionImageMain = styled.img`
@@ -44,11 +51,22 @@ export default () => {
         {result &&
           result.production.image_url.map((v, i) => {
             if (i < 6) {
-              return <ProductionImage src={v} />;
+              return (
+                <ProductionImage
+                  src={v}
+                  onMouseOver={(v) => {
+                    addImg(v.target.src);
+                  }}
+                />
+              );
             }
           })}
       </ProductionImages>
-      {result && <ProductionImageMain src={result.production.image_url[0]} />}
+      {result && (
+        <ProductionImageMain
+          src={img.length === 0 ? result.production.image_url[0] : img[0]}
+        />
+      )}
     </ProductionImageDiv>
   );
 };

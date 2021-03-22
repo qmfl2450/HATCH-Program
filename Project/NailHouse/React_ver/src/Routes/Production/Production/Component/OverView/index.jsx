@@ -3,26 +3,25 @@ import styled from "styled-components";
 import Category from "./Category";
 import OverView from "./OverView";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
+const Margin = styled.div`
+  margin-bottom: 40px;
 `;
 
-const Header = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 60px;
-  max-width: 1240px;
-`;
+const Container = styled.div``;
+
+const Row = styled.div``;
 
 export default () => {
   return (
-    <Container>
-      <Header>
-        <Category />
-        <OverView />
-      </Header>
-    </Container>
+    <Margin>
+      <Container className="container">
+        <Row className="row">
+          <Category />
+        </Row>
+        <Row className="row">
+          <OverView />
+        </Row>
+      </Container>
+    </Margin>
   );
 };

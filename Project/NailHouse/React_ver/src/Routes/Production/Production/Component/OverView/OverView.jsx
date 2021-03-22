@@ -14,11 +14,7 @@ export default () => {
     result: { result, error, loading },
   } = useContext(ProductionContext);
 
-  // 상품 개요
-  const OverViewDiv = styled.div`
-    display: flex;
-    margin-bottom: 40px;
-  `;
+  const Col = styled.div``;
 
   // 상품 정보 (우측)
   const ProductionOverview = styled.div``;
@@ -27,14 +23,16 @@ export default () => {
     <></>
   ) : (
     <>
-      <OverViewDiv>
+      <Col className="col-7">
         <ProductionImage />
+      </Col>
+      <Col className="col-5">
         <ProductionOverview>
           <ProductionOverView />
-          <Select large />
-          <Order large />
+          <Select />
+          <Order />
         </ProductionOverview>
-      </OverViewDiv>
+      </Col>
     </>
   );
 };

@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
-import { Link } from "react-router-dom";
+
+const Padding = styled.div`
+  padding-top: 80px;
+`;
 
 const Border = styled.div`
   display: flex;
@@ -27,6 +30,9 @@ const CategoryItems = styled.a`
   line-height: 24px;
   letter-spacing: -0.01em;
   color: #1b1c32;
+  &:hover {
+    color: #3da5f5;
+  }
 `;
 
 const Icon = styled.i`
@@ -37,22 +43,24 @@ const Icon = styled.i`
 
 const CategoryMenu = ({ tablet }) => {
   return (
-    <Border>
-      <Container tablet={tablet}>
-        <CategoryItems href="/store">스토어</CategoryItems>
-        <CategoryItems href="/category">홈카테고리</CategoryItems>
-        <CategoryItems href="/wedding-feed">신혼가구</CategoryItems>
-        <CategoryItems href="/ranks">베스트</CategoryItems>
-        <CategoryItems href="/today_deals">오늘의딜</CategoryItems>
-        <CategoryItems href="/special-feed">연휴특가</CategoryItems>
-        <CategoryItems href="/special-feed">월동준비</CategoryItems>
-        <CategoryItems href="/special-feed">리퍼마켓</CategoryItems>
-        <CategoryItems href="/showroom" last>
-          기획전
-        </CategoryItems>
-        <Icon className="icon-New" />
-      </Container>
-    </Border>
+    <Padding>
+      <Border>
+        <Container tablet={tablet}>
+          <CategoryItems href="/store">스토어</CategoryItems>
+          <CategoryItems href="/category">홈카테고리</CategoryItems>
+          <CategoryItems href="/wedding-feed">신혼가구</CategoryItems>
+          <CategoryItems href="/ranks">베스트</CategoryItems>
+          <CategoryItems href="/today_deals">오늘의딜</CategoryItems>
+          <CategoryItems href="/special-feed">연휴특가</CategoryItems>
+          <CategoryItems href="/special-feed">월동준비</CategoryItems>
+          <CategoryItems href="/special-feed">리퍼마켓</CategoryItems>
+          <CategoryItems href="/showroom" last>
+            기획전
+          </CategoryItems>
+          <Icon className="icon-New" />
+        </Container>
+      </Border>
+    </Padding>
   );
 };
 

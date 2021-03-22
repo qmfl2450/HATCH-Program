@@ -6,7 +6,7 @@ import { SelectContext } from "../../../../../../Context/SelectContext";
 
 import { BaseSpan, SmallSpan } from "../../../../../../Component/Span";
 
-export default ({ large }) => {
+export default () => {
   // production 정보가 담긴 state 호출
   const {
     result: { result, loading, error },
@@ -20,7 +20,6 @@ export default ({ large }) => {
     margin-bottom: 8px;
     border-radius: 6px;
     padding: 8px 10px;
-    max-width: ${(props) => (props.large ? "100%" : "360px")};
     background-color: #f7f8fa;
   `;
 
@@ -84,7 +83,7 @@ export default ({ large }) => {
   return (
     <>
       {result.production.options.length === 1 && (
-        <SelectedItemDiv large={large}>
+        <SelectedItemDiv>
           <SelectedItemTop>
             {result && (
               <BaseSpan primary>
@@ -127,7 +126,7 @@ export default ({ large }) => {
         array.length > 0 &&
         array.map((v) => {
           return (
-            <SelectedItemDiv large={large}>
+            <SelectedItemDiv>
               <SelectedItemTop>
                 <BaseSpan primary>{v.name}</BaseSpan>
                 <DeleteItem
