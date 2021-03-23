@@ -92,21 +92,30 @@ const LoginSpan = styled.span`
 `;
 
 export default () => {
-  const IdInput = useInput();
-  const pwInput = useInput();
-  const { error, throwError, returnTrue } = useError();
-
+  // 로그인 시 메인 페이지로 이동하기 위함
   const history = useHistory();
 
+  // id, pw 입력 받아서 state에서 관리
+  const IdInput = useInput();
+  const pwInput = useInput();
+
+  // 에러 발생 시 관리
+  const { error, throwError, returnTrue } = useError();
+
+  // 로그인 여부 localstorage에 저장
   const { login, onLogin } = useContext(LoginContext);
+
+  // 유저 정보 localstorage에 저장
   const { User } = useContext(UserContext);
 
+  // 로그인 시 메인 페이지로 이동
   useEffect(() => {
     if (login) {
       history.push("/");
     }
   }, [login]);
 
+  // 로그인 api를 받아오는 함수 Login()
   const Login = (id, pw) => {
     const data = {
       id,
