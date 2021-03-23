@@ -121,6 +121,10 @@ export default () => {
       id,
       pw,
     };
+    try {
+    } catch (e) {
+      console.log(e);
+    }
     axios
       .post("http://localhost:3001/user/signin", data)
       .then((res) => {
